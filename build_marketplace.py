@@ -37,7 +37,7 @@ def get_header(active_key=''):
     <a class="nav-link {'active' if active_key == 'grok' else ''}" href="grok-bot.html">Grok Bot</a>
     
     <!-- Trang Invite Code -->
-    <a class="nav-link {'active' if active_key == 'invite' else ''}" href="ma-invite.html">Invite Code</a>
+    <a class="nav-link {'active' if active_key == 'invite' else ''}" href="ma-invite.html">🎁 Invite Code</a>
 
     <a class="nav-link {'active' if active_key == 'prompts' else ''}" href="thu-vien-prompt.html">Kho Prompt</a>
     <a class="nav-link {'active' if active_key == 'compare' else ''}" href="so-sanh.html">Thủ Thuật AI</a>
@@ -53,7 +53,7 @@ def get_header(active_key=''):
     </div>
     <a href="muse-ai.html">Muse AI (Gói 1 Tỷ & 31 Tỷ Token) 🔥</a>
     <a href="grok-bot.html">Grok Bot Autonomous</a>
-    <a href="ma-invite.html">Invite Code</a>
+    <a href="ma-invite.html">🎁 Invite Code</a>
     <a href="thu-vien-prompt.html">Kho Prompt Mẫu</a>
     <a href="so-sanh.html">Thủ Thuật & Hướng Dẫn AI</a>
     '''

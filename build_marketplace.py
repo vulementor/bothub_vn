@@ -1,3 +1,4 @@
+from seo_articles import seo_articles_list, render_article_page
 import os
 from pathlib import Path
 
@@ -1183,24 +1184,24 @@ compare_content = '''
       </div>
 
       <div style="display:flex;gap:12px;flex-wrap:wrap;">
-        <button type="button" class="btn btn-primary btn-lg" onclick="openGuideModal('guide-vpn-muse')">
+        <a class="btn btn-primary btn-lg" href="huong-dan-dang-ky-muse-ai-vpn.html">
           🎬 Đọc Bài Viết & Xem Video Demo →
-        </button>
-        <button type="button" class="btn btn-outline btn-lg" onclick="openGuideModal('guide-exmount-antidetect')">
+        </a>
+        <a class="btn btn-outline btn-lg" href="huong-dan-nuoi-da-nick-muse-ai-exmount.html">
           🖥️ Cấu Hình Exmount Browser
-        </button>
+        </a>
       </div>
     </div>
 
     <!-- Spotlight Video Mockup Preview -->
-    <div class="guide-spotlight-preview" onclick="openGuideModal('guide-vpn-muse')" title="Nhấp để xem bài viết và video hướng dẫn chi tiết">
+    <a class="guide-spotlight-preview" href="huong-dan-dang-ky-muse-ai-vpn.html" style="text-decoration:none;" title="Nhấp để xem bài viết và video hướng dẫn chi tiết">
       <div class="preview-bg-cover">
         <div class="play-btn-pulse">▶</div>
         <div style="color:#fff;font-weight:800;font-size:15px;margin-bottom:4px;">VIDEO DEMO THỰC HÀNH TỪNG BƯỚC</div>
         <div style="color:#38bdf8;font-size:12.5px;">Đăng Ký Muse AI · Fake IP · Nhập Invite Code 1 Tỷ Token</div>
       </div>
       <span class="video-preview-tag">HD 1080P · 03:45</span>
-    </div>
+    </a>
   </div>
 
   <!-- Filter Bar -->
@@ -1226,7 +1227,7 @@ compare_content = '''
 
       <div class="guide-grid-focused">
         <!-- Card 1 -->
-        <div class="guide-card-item" data-category="muse vpn" onclick="openGuideModal('guide-vpn-muse')">
+        <a class="guide-card-item" data-category="muse vpn" href="huong-dan-dang-ky-muse-ai-vpn.html" style="text-decoration:none;color:inherit;">
           <div class="guide-card-thumb-mockup">
             <div class="thumb-gradient-bg" style="background:linear-gradient(135deg, rgba(6,182,212,0.15), rgba(99,102,241,0.2));">
               <span class="thumb-icon-big">🌐</span>
@@ -1241,10 +1242,10 @@ compare_content = '''
             <span style="color:#94a3b8;">⏱️ 3 Phút Đọc</span>
             <span class="guide-read-link">Đọc bài & xem video →</span>
           </div>
-        </div>
+        </a>
 
         <!-- Card 2 -->
-        <div class="guide-card-item" data-category="muse" onclick="openGuideModal('guide-oauth-muse')">
+        <a class="guide-card-item" data-category="muse" href="huong-dan-dang-ky-muse-ai-chatgpt-oauth.html" style="text-decoration:none;color:inherit;">
           <div class="guide-card-thumb-mockup">
             <div class="thumb-gradient-bg" style="background:linear-gradient(135deg, rgba(16,185,129,0.15), rgba(6,182,212,0.2));">
               <span class="thumb-icon-big">🔑</span>
@@ -1259,10 +1260,10 @@ compare_content = '''
             <span style="color:#94a3b8;">⏱️ 2 Phút Đọc</span>
             <span class="guide-read-link">Đọc bài & xem video →</span>
           </div>
-        </div>
+        </a>
 
         <!-- Card 3 -->
-        <div class="guide-card-item" data-category="muse tips" onclick="openGuideModal('guide-save-token')">
+        <a class="guide-card-item" data-category="muse tips" href="meo-toi-uu-token-muse-ai.html" style="text-decoration:none;color:inherit;">
           <div class="guide-card-thumb-mockup">
             <div class="thumb-gradient-bg" style="background:linear-gradient(135deg, rgba(245,158,11,0.15), rgba(244,63,94,0.2));">
               <span class="thumb-icon-big">⚡</span>
@@ -1277,7 +1278,7 @@ compare_content = '''
             <span style="color:#94a3b8;">⏱️ 3 Phút Đọc</span>
             <span class="guide-read-link">Đọc bài & xem video →</span>
           </div>
-        </div>
+        </a>
       </div>
     </div>
 
@@ -1293,7 +1294,7 @@ compare_content = '''
 
       <div class="guide-grid-focused">
         <!-- Card 4 -->
-        <div class="guide-card-item" data-category="vpn muse" onclick="openGuideModal('guide-exmount-antidetect')">
+        <a class="guide-card-item" data-category="vpn muse" href="huong-dan-nuoi-da-nick-muse-ai-exmount.html" style="text-decoration:none;color:inherit;">
           <div class="guide-card-thumb-mockup">
             <div class="thumb-gradient-bg" style="background:linear-gradient(135deg, rgba(99,102,241,0.25), rgba(244,63,94,0.2));">
               <span class="thumb-icon-big">🖥️</span>
@@ -1308,7 +1309,7 @@ compare_content = '''
             <span style="color:#94a3b8;">⏱️ 5 Phút Đọc</span>
             <span class="guide-read-link">Đọc bài & xem video →</span>
           </div>
-        </div>
+        </a>
       </div>
     </div>
 
@@ -1324,7 +1325,7 @@ compare_content = '''
 
       <div class="guide-grid-focused">
         <!-- Card 5 -->
-        <div class="guide-card-item" data-category="tips vpn" onclick="openGuideModal('guide-fix-403')">
+        <a class="guide-card-item" data-category="tips vpn" href="cach-sua-loi-403-forbidden-ai-cloudflare.html" style="text-decoration:none;color:inherit;">
           <div class="guide-card-thumb-mockup">
             <div class="thumb-gradient-bg" style="background:linear-gradient(135deg, rgba(239,68,68,0.15), rgba(245,158,11,0.2));">
               <span class="thumb-icon-big">⚠️</span>
@@ -1339,7 +1340,7 @@ compare_content = '''
             <span style="color:#94a3b8;">⏱️ 3 Phút Đọc</span>
             <span class="guide-read-link">Đọc bài & xem video →</span>
           </div>
-        </div>
+        </a>
       </div>
     </div>
   </div>
@@ -2202,5 +2203,15 @@ for filename, title, desc, content, active_key in pages:
     html = render_page(title, desc, content, active_key)
     filepath.write_text(html, encoding='utf-8')
     print(f"Generated {filename} ({round(len(html)/1024, 1)} KB)")
+
+
+# =========================================================================
+# GENERATE STANDALONE SEO ARTICLES (HOWTO / TECH ARTICLE)
+# =========================================================================
+for art in seo_articles_list:
+    art_html = render_article_page(get_header('compare'), get_footer(), art)
+    art_path = ROOT / art['slug']
+    art_path.write_text(art_html, encoding='utf-8')
+    print(f"Generated SEO Article: {art['slug']} ({round(len(art_html)/1024, 1)} KB)")
 
 print("All marketplace pages generated successfully!")

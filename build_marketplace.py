@@ -40,7 +40,7 @@ def get_header(active_key=''):
     <a class="nav-link {'active' if active_key == 'invite' else ''}" href="ma-invite.html">Invite Code</a>
 
     <a class="nav-link {'active' if active_key == 'prompts' else ''}" href="thu-vien-prompt.html">Kho Prompt</a>
-    <a class="nav-link {'active' if active_key == 'compare' else ''}" href="so-sanh.html">So sánh AI</a>
+    <a class="nav-link {'active' if active_key == 'compare' else ''}" href="so-sanh.html">Thủ Thuật AI</a>
     '''
 
     drawer_html = f'''
@@ -55,7 +55,7 @@ def get_header(active_key=''):
     <a href="grok-bot.html">Grok Bot Autonomous</a>
     <a href="ma-invite.html">Invite Code</a>
     <a href="thu-vien-prompt.html">Kho Prompt Mẫu</a>
-    <a href="so-sanh.html">So Sánh AI</a>
+    <a href="so-sanh.html">Thủ Thuật & Hướng Dẫn AI</a>
     '''
 
     return f'''
@@ -187,10 +187,10 @@ def get_footer():
             <h4>Tài Nguyên & Công Cụ</h4>
             <ul>
               <li><a href="thu-vien-prompt.html">Kho 1000+ Prompt Miễn Phí</a></li>
-              <li><a href="so-sanh.html">Bảng So Sánh Các AI Model</a></li>
+              <li><a href="so-sanh.html">Thủ Thuật & Hướng Dẫn AI</a></li>
+              <li><a href="so-sanh.html#bang-so-sanh">Bảng So Sánh Các AI Model</a></li>
               <li><a href="chinh-sach.html">Chính Sách Bảo Hành 1-1</a></li>
               <li><a href="gio-hang.html">Giỏ Hàng & Đơn Hàng</a></li>
-              <li><a href="chinh-sach.html">Hướng Dẫn Thanh Toán VietQR</a></li>
             </ul>
           </div>
 
@@ -316,7 +316,7 @@ home_content = f'''
       </div>
       <div class="hero-ctas">
         <a href="#flagship-products" class="btn btn-primary btn-lg">Khám Phá Các Gói Hot ⚡</a>
-        <a href="so-sanh.html" class="btn btn-outline btn-lg">So Sánh Nhanh Các AI ↗</a>
+        <a href="so-sanh.html" class="btn btn-outline btn-lg">Thủ Thuật & So Sánh AI ↗</a>
       </div>
     </div>
 
@@ -1144,81 +1144,472 @@ prompt_content = f'''
 '''
 
 # =========================================================================
-# 9. SO-SANH.HTML (COMPARISON MATRIX)
+# 9. SO-SANH.HTML (THỦ THUẬT, TIPS, HƯỚNG DẪN & MA TRẬN SO SÁNH AI)
 # =========================================================================
-compare_content = f'''
-<div class="container" style="padding-top:30px;">
-  <div style="margin-bottom:25px;">
-    <span class="section-eyebrow">BẢNG PHÂN TÍCH & ĐỐI CHIẾU</span>
-    <h1 style="font-size:32px;margin:8px 0;font-weight:800;">So Sánh Các Dòng Siêu AI: Chọn Đúng Công Cụ</h1>
-    <p style="color:#94a3b8;font-size:14px;">Mỗi mô hình AI có một thế mạnh riêng biệt. Đối chiếu bảng dưới đây để đầu tư đúng công cụ cho công việc của bạn.</p>
+compare_content = '''
+<div class="container" style="padding-top:35px;padding-bottom:50px;">
+  <!-- Header Banner -->
+  <div style="margin-bottom:30px;">
+    <span class="section-eyebrow">BOTHUB KNOWLEDGE & GUIDE HUB · THỰC CHIẾN 100%</span>
+    <h1 style="font-size:32px;margin:8px 0;font-weight:800;">Thủ Thuật AI & Hướng Dẫn Đăng Ký Thực Chiến</h1>
+    <p style="color:#94a3b8;font-size:15px;max-width:850px;line-height:1.7;">
+      Tổng hợp cẩm nang thực chiến từ chuyên gia: Cách đăng ký Muse AI nhận 1 tỷ token bằng <strong>VPN, Google/ChatGPT OAuth</strong>, quản lý đa profile với <strong>Trình duyệt Antidetect (Exmount, AdsPower)</strong>, mẹo bypass lỗi và bảng so sánh toàn diện các siêu AI.
+    </p>
   </div>
 
-  <div class="matrix-table-wrap">
-    <table class="matrix-table">
-      <thead>
-        <tr>
-          <th>Tiêu Chí</th>
-          <th>Muse AI (Meta)</th>
-          <th>Grok Bot (xAI)</th>
-          <th>ChatGPT Plus</th>
-          <th>Claude AI Pro</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>Phân loại chính</strong></td>
-          <td><span class="badge badge-hot">Autonomous Agent</span></td>
-          <td><span class="badge badge-cyan">Cloud Terminal & Coding</span></td>
-          <td><span class="badge badge-green">Trợ lý toàn năng</span></td>
-          <td><span class="badge badge-purple">Viết văn & Lập trình sâu</span></td>
-        </tr>
-        <tr>
-          <td><strong>Khả năng tự thao tác</strong></td>
-          <td>Tự mở trình duyệt, điền biểu mẫu, làm việc 24/7</td>
-          <td>Chạy lệnh Linux Terminal, tương tác API</td>
-          <td>Duyệt web tra cứu (Browse with Bing)</td>
-          <td>Claude Code tương tác file dự án</td>
-        </tr>
-        <tr>
-          <td><strong>Mô hình cốt lõi</strong></td>
-          <td>Meta Muse Agent Model</td>
-          <td>Grok 3 / Vision</td>
-          <td>GPT-4o, GPT-o1</td>
-          <td>Claude 3.7 Sonnet, Opus</td>
-        </tr>
-        <tr>
-          <td><strong>Dung lượng / Hạn mức</strong></td>
-          <td><strong>1 Tỷ - 31 Tỷ Token</strong></td>
-          <td>Gói tháng Cursor Pro / SuperGrok</td>
-          <td>Không giới hạn theo tin nhắn</td>
-          <td>Cửa sổ ngữ cảnh 200.000 Token</td>
-        </tr>
-        <tr>
-          <td><strong>Giá tại BotHub</strong></td>
-          <td><strong style="color:var(--emerald);">Từ 69.000đ</strong></td>
-          <td><strong style="color:var(--emerald);">Từ 299.000đ/tháng</strong></td>
-          <td><strong style="color:var(--emerald);">Từ 290.000đ/tháng</strong></td>
-          <td><strong style="color:var(--emerald);">430.000đ/tháng</strong></td>
-        </tr>
-        <tr>
-          <td><strong>Phù hợp cho ai?</strong></td>
-          <td>Người cần tự động hoá task lặp đi lặp lại</td>
-          <td>Lập trình viên, kỹ sư phần mềm</td>
-          <td>Nhân viên văn phòng, sinh viên, creator</td>
-          <td>Chuyên gia nội dung, lập trình viên cao cấp</td>
-        </tr>
-        <tr>
-          <td><strong>Hành động</strong></td>
-          <td><button class="btn btn-primary btn-sm" onclick="window.__openCheckout('muse-1b')">⚡ Mua Muse 69k</button></td>
-          <td><button class="btn btn-primary btn-sm" onclick="window.__openCheckout('grok-cursor')">⚡ Mua Grok 299k</button></td>
-          <td><button class="btn btn-primary btn-sm" onclick="window.__openCheckout('chatgpt-plus')">⚡ Mua GPT 420k</button></td>
-          <td><button class="btn btn-primary btn-sm" onclick="window.__openCheckout('claude-pro')">⚡ Mua Claude 430k</button></td>
-        </tr>
-      </tbody>
-    </table>
+  <!-- Filter Bar -->
+  <div class="guide-filter-bar">
+    <button type="button" class="guide-tab-btn active" data-filter="all">Tất Cả Thủ Thuật (5)</button>
+    <button type="button" class="guide-tab-btn" data-filter="muse">🔥 Đăng Ký Muse AI</button>
+    <button type="button" class="guide-tab-btn" data-filter="vpn">🛡️ VPN & Antidetect (Exmount)</button>
+    <button type="button" class="guide-tab-btn" data-filter="tips">💡 Mẹo & Khắc Phục Lỗi</button>
+    <button type="button" class="guide-tab-btn" data-filter="compare">⚖️ Bảng So Sánh AI</button>
+  </div>
+
+  <!-- Guides Grid -->
+  <div class="guide-grid" id="guides-grid">
+    <!-- Bài 1: Đăng ký Muse AI bằng VPN -->
+    <div class="guide-card featured" data-category="muse vpn">
+      <div class="guide-card-top">
+        <div class="guide-icon-badge">🌐</div>
+        <div class="guide-tags-row">
+          <span class="guide-tag hot">HOT NHẤT</span>
+          <span class="guide-tag tech">VPN FAKE IP</span>
+          <span class="guide-tag">3 PHÚT</span>
+        </div>
+      </div>
+      <h3 class="guide-card-title">Hướng Dẫn Đăng Ký Muse AI Bằng VPN Nhận 1 Tỷ Token (Chống Chặn IP)</h3>
+      <p class="guide-card-desc">
+        Nền tảng Muse AI thường giới hạn IP tại Việt Nam hoặc chặn cấp phát gói 1 Tỷ Token miễn phí. Hướng dẫn chi tiết cách dùng VPN sạch (US/Singapore) để đăng ký thành công 100% và nhận ngay 1 Tỷ Token vào ví.
+      </p>
+
+      <button type="button" class="guide-toggle-btn" onclick="toggleGuide(this)">
+        <span>Xem hướng dẫn chi tiết từng bước ▼</span>
+      </button>
+
+      <div class="guide-steps-container">
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <strong>Cài đặt phần mềm VPN uy tín</strong>
+            Khuyên dùng: Proton VPN (miễn phí server US/NL/JP), 1.1.1.1 Cloudflare WARP, hoặc NordVPN / ExpressVPN để có IP dân cư sạch nhất.
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <strong>Kết nối Server US hoặc Singapore</strong>
+            Chọn máy chủ United States (San Jose, California hoặc New York) hoặc Singapore. Mở trang <code>whoer.net</code> kiểm tra độ ẩn danh đạt trên 80%.
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <strong>Mở tab ẩn danh (Incognito)</strong>
+            Nhấn <code>Ctrl + Shift + N</code> (hoặc <code>Cmd + Shift + N</code> trên Mac) để xóa sạch cookie và cache cũ tránh bị nhận diện vị trí trước đó.
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <strong>Truy cập Muse AI & Nhập Invite Code</strong>
+            Vào cổng đăng ký tài khoản. Điền email và dán mã mời còn lượt tại <a href="ma-invite.html" style="color:var(--cyan);font-weight:700;">Kho Invite Code BotHub</a> (ví dụ <code>ZACDIA</code>, <code>6WVLSZ</code>, <code>PYWR4C</code>) vào ô <em>Invite / Referral Code</em>.
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">5</div>
+          <div class="step-body">
+            <strong>Xác nhận Email & Kích hoạt ví</strong>
+            Mở hộp thư email xác thực mã OTP. Đăng nhập vào bảng điều khiển Muse AI: Kiểm tra số dư thấy ngay <strong>1.000.000.000 Token (1 Tỷ Token)</strong> miễn phí!
+          </div>
+        </div>
+
+        <div class="pro-tip-box">
+          <strong>⚠️ Lưu ý sống còn:</strong> Tuyệt đối giữ nguyên kết nối VPN trong suốt quá trình điền form và xác nhận mã email. Không tắt VPN giữa chừng kẻo hệ thống hủy phiên đăng ký.
+        </div>
+      </div>
+    </div>
+
+    <!-- Bài 2: Đăng ký Muse AI bằng ChatGPT / Google Auth -->
+    <div class="guide-card" data-category="muse">
+      <div class="guide-card-top">
+        <div class="guide-icon-badge">🔑</div>
+        <div class="guide-tags-row">
+          <span class="guide-tag tech">OAUTH 2.0</span>
+          <span class="guide-tag">1-CLICK</span>
+          <span class="guide-tag">CỰC DỄ</span>
+        </div>
+      </div>
+      <h3 class="guide-card-title">Hướng Dẫn Đăng Ký Muse AI Bằng Google & ChatGPT Auth Siêu Nhanh</h3>
+      <p class="guide-card-desc">
+        Giải pháp nhanh nhất cho người không muốn nhớ thêm mật khẩu hoặc tránh tình trạng email xác nhận OTP bị rơi vào hòm thư Spam/Rác. Xác thực 1-click liên kết Google hoặc OpenAI cực kỳ an toàn.
+      </p>
+
+      <button type="button" class="guide-toggle-btn" onclick="toggleGuide(this)">
+        <span>Xem hướng dẫn chi tiết từng bước ▼</span>
+      </button>
+
+      <div class="guide-steps-container">
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <strong>Đăng nhập sẵn tài khoản gốc</strong>
+            Mở trình duyệt và đăng nhập sẵn tài khoản Gmail chính hoặc tài khoản OpenAI ChatGPT của bạn.
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <strong>Chọn phương thức liên kết OAuth</strong>
+            Tại trang Sign-up của Muse AI, nhấp vào nút <strong>"Continue with Google"</strong> hoặc <strong>"Login via OpenID/ChatGPT Auth"</strong>.
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <strong>Ủy quyền định danh an toàn</strong>
+            Hệ thống chỉ yêu cầu quyền đọc tên và email công khai (chuẩn bảo mật OAuth 2.0), không cấp quyền truy cập vào dữ liệu cá nhân hay mật khẩu của bạn.
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <strong>Điền mã Invite Code từ BotHub</strong>
+            Tại màn hình chào mừng hoàn tất hồ sơ, nhập mã Invite Code từ <a href="ma-invite.html" style="color:var(--cyan);font-weight:700;">ma-invite.html</a> để nhận ngay 1 Tỷ Token.
+          </div>
+        </div>
+
+        <div class="pro-tip-box">
+          <strong>💡 Mẹo Pro:</strong> Tài khoản tạo qua Google/ChatGPT Auth có độ Trust Score cao hơn nhiều lần so với email đăng ký thủ công, hầu như không bao giờ bị dính kiểm tra checkpoint xác thực bot.
+        </div>
+      </div>
+    </div>
+
+    <!-- Bài 3: Đăng ký & nuôi đa nick bằng Trình duyệt Antidetect (Exmount, AdsPower) -->
+    <div class="guide-card featured" data-category="muse vpn">
+      <div class="guide-card-top">
+        <div class="guide-icon-badge">🖥️</div>
+        <div class="guide-tags-row">
+          <span class="guide-tag hot">NÂNG CAO</span>
+          <span class="guide-tag tech">EXMOUNT BROWSER</span>
+          <span class="guide-tag">DEV AUTOMATION</span>
+        </div>
+      </div>
+      <h3 class="guide-card-title">Hướng Dẫn Đăng Ký & Quản Lý Đa Nick Muse AI Bằng Browser Antidetect (Exmount)</h3>
+      <p class="guide-card-desc">
+        Dành cho kỹ sư tự động hóa, lập trình viên và anh em làm affiliate cần cắm hàng chục Agent chạy ngầm 24/7 cào dữ liệu mà không sợ bị trùng vân tay (fingerprint) trình duyệt hay bị khóa tài khoản hàng loạt.
+      </p>
+
+      <button type="button" class="guide-toggle-btn" onclick="toggleGuide(this)">
+        <span>Xem hướng dẫn chi tiết từng bước ▼</span>
+      </button>
+
+      <div class="guide-steps-container">
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <strong>Cài đặt Trình duyệt Antidetect</strong>
+            Khuyên dùng <strong>Exmount Browser</strong> (tối ưu hóa chuyên sâu cho AI & Automation, nhẹ, quản lý hàng trăm profile mượt mà) hoặc AdsPower / GoLogin.
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <strong>Tạo Profile môi trường cô lập</strong>
+            Đặt tên Profile (ví dụ <code>Agent-Bot-01</code>). Thiết lập giả lập OS (Windows 11 / macOS), tự sinh fingerprint mới: Canvas, WebGL, AudioContext, CPU cores, RAM và WebRTC chống lộ IP thật.
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <strong>Gán Proxy dân cư (Residential Proxy)</strong>
+            Mỗi Profile gán một Proxy SOCKS5/HTTP riêng biệt (IP tĩnh sạch). Kiểm tra profile đạt 100% xanh trên <code>browserleaks.com</code> hoặc <code>pixelscan.net</code>.
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <strong>Mở Profile & Tiến hành đăng ký Muse AI</strong>
+            Mỗi profile mở lên như một máy tính vật lý độc lập ở một quốc gia khác. Đăng ký tài khoản và nhập Invite Code từ BotHub để mỗi profile đều sở hữu 1 Tỷ Token.
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">5</div>
+          <div class="step-body">
+            <strong>Cắm Agent chạy tự động 24/7</strong>
+            Dùng script headless hoặc API để điều khiển bot làm việc liên tục. Không bao giờ lo bị hệ thống phát hiện liên đới giữa các tài khoản!
+          </div>
+        </div>
+
+        <div class="pro-tip-box">
+          <strong>🛡️ Bí kíp từ Dev BotHub:</strong> Xuất file Cookies dạng JSON sau khi đăng ký thành công trên Exmount. Bạn có thể import file cookie này vào server NodeJS/Python để bot chạy không cần đăng nhập lại.
+        </div>
+      </div>
+    </div>
+
+    <!-- Bài 4: Tối ưu Token & Khai thác gói 31 Tỷ -->
+    <div class="guide-card" data-category="tips">
+      <div class="guide-card-top">
+        <div class="guide-icon-badge">⚡</div>
+        <div class="guide-tags-row">
+          <span class="guide-tag tech">TIẾT KIỆM 70%</span>
+          <span class="guide-tag">TOKEN MANAGEMENT</span>
+        </div>
+      </div>
+      <h3 class="guide-card-title">Mẹo Tối Ưu Phân Bổ Token & Khai Thác Gói 31 Tỷ Token Muse AI</h3>
+      <p class="guide-card-desc">
+        Làm sao để 1 Tỷ Token không bị tiêu hao vô ích trong vài ngày? Hướng dẫn thiết lập tham số Agent, tối ưu độ dài context prompt và thời điểm nên nâng cấp gói 31 Tỷ Token tại BotHub để tối ưu chi phí.
+      </p>
+
+      <button type="button" class="guide-toggle-btn" onclick="toggleGuide(this)">
+        <span>Xem hướng dẫn chi tiết từng bước ▼</span>
+      </button>
+
+      <div class="guide-steps-container">
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <strong>Giới hạn Max Tokens phản hồi</strong>
+            Với các tác vụ phân loại hoặc trích xuất dữ liệu, luôn đặt <code>max_tokens: 500-1000</code>. Tránh để mặc định làm agent tự sinh giải thích dài dòng tốn token.
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <strong>Yêu cầu trả kết quả dạng JSON Minified</strong>
+            Cấu hình prompt trả kết quả dạng JSON nén giúp tiết kiệm 30% đến 45% lượng token truyền tải so với văn bản tự do.
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <strong>Săn mã Invite Code mới mỗi ngày</strong>
+            Vào <a href="ma-invite.html" style="color:var(--cyan);font-weight:700;">Kho Invite Code</a> trên BotHub để lấy các mã mới khi cần bổ sung lượt dùng miễn phí.
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <strong>Nâng cấp gói 31 Tỷ Token chỉ 249.000đ</strong>
+            Nếu triển khai dự án thương mại thực tế, gói 31 Tỷ Token tại BotHub là lựa chọn tối ưu nhất, rẻ hơn 85% so với mua credit lẻ và được bảo hành 1 đổi 1 trọn đời tài khoản.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bài 5: Xử lý lỗi 403 Forbidden & Cloudflare Captcha -->
+    <div class="guide-card" data-category="tips vpn">
+      <div class="guide-card-top">
+        <div class="guide-icon-badge">💡</div>
+        <div class="guide-tags-row">
+          <span class="guide-tag">TROUBLESHOOTING</span>
+          <span class="guide-tag hot">FIX LỖI 403</span>
+        </div>
+      </div>
+      <h3 class="guide-card-title">Khắc Phục Lỗi 403 Forbidden, IP Blocked & Kẹt Captcha Cloudflare</h3>
+      <p class="guide-card-desc">
+        Tổng hợp bí quyết xử lý các lỗi thường gặp nhất khi anh em dùng AI quốc tế: "Access Denied", "Rate Limit Exceeded", "Verification Loop" và cách đổi IP sạch trong 30 giây.
+      </p>
+
+      <button type="button" class="guide-toggle-btn" onclick="toggleGuide(this)">
+        <span>Xem hướng dẫn chi tiết từng bước ▼</span>
+      </button>
+
+      <div class="guide-steps-container">
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <strong>Xóa Cache & Cookies cục bộ của trang</strong>
+            Nhấn <code>F12</code> -> Chuyển sang tab <strong>Application</strong> -> Chọn <strong>Clear storage</strong> -> Nhấn <em>Clear site data</em>.
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <strong>Đổi cụm IP máy chủ VPN</strong>
+            Nếu server US East bị chặn, đổi sang US West (San Jose, Los Angeles) hoặc server Châu Âu (Frankfurt, Amsterdam). Các server này có dải IP ít bị Cloudflare gắn cờ đen.
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <strong>Tắt các Extension xung đột</strong>
+            Tạm thời tắt các tiện ích AdBlock, uBlock Origin hoặc cookie pop-up blockers vì chúng có thể chặn script xác thực Cloudflare Turnstile của Muse AI.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section Bảng So Sánh AI -->
+  <div id="bang-so-sanh" style="margin-top:60px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.08);">
+    <div style="margin-bottom:25px;">
+      <span class="section-eyebrow">ĐỐI CHIẾU TOÀN DIỆN CÁC SIÊU AI HÀNG ĐẦU</span>
+      <h2 style="font-size:28px;margin:8px 0;font-weight:800;">Bảng Ma Trận So Sánh Các Dòng Siêu AI: Chọn Đúng Công Cụ</h2>
+      <p style="color:#94a3b8;font-size:14.5px;">Mỗi mô hình AI có một thế mạnh riêng biệt. Đối chiếu bảng dưới đây để đầu tư đúng công cụ cho công việc của bạn.</p>
+    </div>
+
+    <div class="matrix-table-wrap">
+      <table class="matrix-table">
+        <thead>
+          <tr>
+            <th>Tiêu Chí So Sánh</th>
+            <th>Muse AI (Meta)</th>
+            <th>Grok Bot (xAI)</th>
+            <th>ChatGPT Plus</th>
+            <th>Claude AI Pro</th>
+            <th>Gemini Advanced</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Phân loại chính</strong></td>
+            <td><span class="badge badge-hot">Autonomous Agent</span></td>
+            <td><span class="badge badge-cyan">Cloud Terminal & Coding</span></td>
+            <td><span class="badge badge-green">Trợ lý toàn năng</span></td>
+            <td><span class="badge badge-purple">Viết văn & Lập trình sâu</span></td>
+            <td><span class="badge badge-blue" style="background:#2563eb;color:#fff;">2M Context & 2TB Drive</span></td>
+          </tr>
+          <tr>
+            <td><strong>Khả năng tự thao tác</strong></td>
+            <td>Tự mở trình duyệt, điền form, cào data 24/7</td>
+            <td>Chạy lệnh Linux Terminal, tương tác API</td>
+            <td>Duyệt web tra cứu (Browse with Bing)</td>
+            <td>Claude Code tương tác file dự án sâu</td>
+            <td>Tích hợp sâu Google Workspace & YouTube</td>
+          </tr>
+          <tr>
+            <td><strong>Mô hình cốt lõi</strong></td>
+            <td>Meta Muse Agent Model</td>
+            <td>Grok 3 / Vision 128k</td>
+            <td>GPT-4o, GPT-o1, Canvas</td>
+            <td>Claude 3.7 Sonnet, Opus</td>
+            <td>Gemini 2.0 Pro / Ultra</td>
+          </tr>
+          <tr>
+            <td><strong>Dung lượng / Hạn mức</strong></td>
+            <td><strong>1 Tỷ - 31 Tỷ Token</strong></td>
+            <td>Gói tháng Cursor Pro / SuperGrok</td>
+            <td>Không giới hạn theo tin nhắn</td>
+            <td>Cửa sổ ngữ cảnh 200.000 Token</td>
+            <td><strong>2.000.000 Token (2M Context)</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Giá tại BotHub</strong></td>
+            <td><strong style="color:var(--emerald);">Từ 69.000đ</strong></td>
+            <td><strong style="color:var(--emerald);">Từ 299.000đ/tháng</strong></td>
+            <td><strong style="color:var(--emerald);">Từ 290.000đ/tháng</strong></td>
+            <td><strong style="color:var(--emerald);">430.000đ/tháng</strong></td>
+            <td><strong style="color:var(--emerald);">260.000đ/tháng</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Phù hợp nhất cho ai?</strong></td>
+            <td>Cần tự động hóa tác vụ lặp, cào web, chạy ngầm</td>
+            <td>Lập trình viên, kỹ sư Linux & Terminal</td>
+            <td>Nhân viên văn phòng, marketing, sáng tạo nội dung</td>
+            <td>Chuyên gia nội dung dài, lập trình viên cao cấp</td>
+            <td>Nghiên cứu dữ liệu lớn, đọc tài liệu PDF nghìn trang</td>
+          </tr>
+          <tr>
+            <td><strong>Hành động</strong></td>
+            <td><button class="btn btn-primary btn-sm" onclick="window.__openCheckout('muse-1b')">⚡ Mua Muse 69k</button></td>
+            <td><button class="btn btn-primary btn-sm" onclick="window.__openCheckout('grok-cursor')">⚡ Mua Grok 299k</button></td>
+            <td><button class="btn btn-primary btn-sm" onclick="window.__openCheckout('chatgpt-plus')">⚡ Mua GPT 420k</button></td>
+            <td><button class="btn btn-primary btn-sm" onclick="window.__openCheckout('claude-pro')">⚡ Mua Claude 430k</button></td>
+            <td><button class="btn btn-primary btn-sm" onclick="window.__openCheckout('gemini-2tb')">⚡ Mua Gemini 260k</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Quick Recommendations Grid -->
+    <h3 style="font-size:20px;font-weight:800;color:#fff;margin-top:35px;margin-bottom:15px;">Nên Chọn AI Nào Cho Mục Đích Của Bạn?</h3>
+    <div class="recommend-grid">
+      <div class="recommend-card">
+        <h4>🤖 Tự Động Hóa & Agent</h4>
+        <p>Chọn <strong>Muse AI</strong> nếu bạn cần một nhân viên AI tự mở trình duyệt, tự điền form, cào data 24/7 với chi phí siêu rẻ chỉ từ 69.000đ.</p>
+        <a href="muse-ai.html" style="color:var(--cyan);font-weight:700;font-size:12.5px;display:inline-block;margin-top:8px;">Xem gói Muse AI →</a>
+      </div>
+      <div class="recommend-card">
+        <h4>💻 Lập Trình & Terminal</h4>
+        <p>Chọn <strong>Grok Bot</strong> hoặc <strong>Claude Pro</strong> nếu bạn là lập trình viên cần AI chạy lệnh Terminal, đọc cả codebase và refactor code chuẩn xác.</p>
+        <a href="grok-bot.html" style="color:var(--cyan);font-weight:700;font-size:12.5px;display:inline-block;margin-top:8px;">Xem gói Grok Bot →</a>
+      </div>
+      <div class="recommend-card">
+        <h4>📄 Trợ Lý Văn Phòng Đa Năng</h4>
+        <p>Chọn <strong>ChatGPT Plus</strong> nếu bạn cần một trợ lý toàn diện: xử lý file Excel, tạo ảnh DALL-E, viết content, dịch thuật và lập luận logic GPT-o1.</p>
+        <a href="chatgpt.html" style="color:var(--cyan);font-weight:700;font-size:12.5px;display:inline-block;margin-top:8px;">Xem gói ChatGPT Plus →</a>
+      </div>
+      <div class="recommend-card">
+        <h4>☁️ Dữ Liệu Lớn & 2TB Drive</h4>
+        <p>Chọn <strong>Gemini Advanced</strong> nếu bạn cần đọc tài liệu PDF dài hàng nghìn trang với cửa sổ ngữ cảnh 2 triệu token cùng 2000GB Google Drive đi kèm.</p>
+        <a href="gemini-ai.html" style="color:var(--cyan);font-weight:700;font-size:12.5px;display:inline-block;margin-top:8px;">Xem gói Gemini 2TB →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tech Support CTA Banner -->
+  <div style="background:linear-gradient(135deg, rgba(99,102,241,0.12), rgba(6,182,212,0.12));border:1px solid rgba(6,182,212,0.3);border-radius:var(--radius-lg);padding:28px 32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;margin-top:40px;">
+    <div>
+      <h3 style="font-size:20px;font-weight:800;color:#fff;margin-bottom:6px;">Cần Hỗ Trợ Cài Đặt Exmount, Cấu Hình VPN Hoặc Đăng Ký Muse AI?</h3>
+      <p style="color:#94a3b8;font-size:13.5px;margin:0;">Đội ngũ kỹ thuật viên BotHub hỗ trợ 1-1 qua Zalo hoặc Ultraview hoàn toàn miễn phí cho tất cả khách hàng!</p>
+    </div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+      <a href="https://zalo.me/0388888888" target="_blank" rel="noopener" class="btn btn-emerald btn-lg">💬 Nhắn Zalo Kỹ Thuật Ngay</a>
+      <a href="ma-invite.html" class="btn btn-outline btn-lg">🎁 Lấy Mã Invite Code</a>
+    </div>
   </div>
 </div>
+
+<script>
+function toggleGuide(btn) {
+  const container = btn.nextElementSibling;
+  const isOpen = container.classList.contains('open');
+  if (isOpen) {
+    container.classList.remove('open');
+    btn.querySelector('span').textContent = 'Xem hướng dẫn chi tiết từng bước ▼';
+  } else {
+    container.classList.add('open');
+    btn.querySelector('span').textContent = 'Thu gọn hướng dẫn ▲';
+  }
+}
+
+// Filter tabs
+document.addEventListener('DOMContentLoaded', () => {
+  const tabBtns = document.querySelectorAll('.guide-tab-btn');
+  const cards = document.querySelectorAll('.guide-card');
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.getAttribute('data-filter');
+
+      if (filter === 'compare') {
+        const compareSection = document.getElementById('bang-so-sanh');
+        if (compareSection) {
+          compareSection.scrollIntoView({ behavior: 'smooth' });
+        }
+        return;
+      }
+
+      cards.forEach(card => {
+        if (filter === 'all') {
+          card.style.display = 'flex';
+        } else {
+          const cats = card.getAttribute('data-category') || '';
+          if (cats.includes(filter)) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        }
+      });
+    });
+  });
+});
+</script>
 '''
 
 # =========================================================================
@@ -1478,7 +1869,7 @@ pages = [
     ('claude-ai.html', 'Claude AI Pro Sonnet 3.7 & Opus', 'Mua tài khoản Claude Pro chính hãng. Siêu trí tuệ lập trình và viết văn tự nhiên.', claude_content, 'claude'),
     ('gemini-ai.html', 'Gemini Advanced 2TB Google One AI', 'Gemini 2.0 Pro đỉnh cao + 2000GB Google Drive tích hợp Gmail, Docs.', gemini_content, 'gemini'),
     ('thu-vien-prompt.html', 'Kho Thư Viện Prompt AI Thực Chiến Miễn Phí', 'Tuyển tập 1000+ prompt hay cho AI Agent, Marketing, Coding, Midjourney.', prompt_content, 'prompts'),
-    ('so-sanh.html', 'So Sánh Các Dòng Siêu AI Chi Tiết', 'Bảng ma trận so sánh tính năng và giá giữa Muse, Grok, ChatGPT, Claude, Gemini.', compare_content, 'compare'),
+    ('so-sanh.html', 'Thủ Thuật AI & Hướng Dẫn Đăng Ký Muse AI Bằng VPN, Exmount', 'Tổng hợp thủ thuật AI: Hướng dẫn đăng ký Muse AI bằng VPN, OAuth, browser antidetect Exmount nhận 1 tỷ token và ma trận so sánh các dòng AI.', compare_content, 'compare'),
     ('gio-hang.html', 'Giỏ Hàng & Thanh Toán VietQR', 'Danh sách gói AI đã lưu, thanh toán VietQR tự động nhận tài khoản sau 5 phút.', cart_content, 'cart'),
     ('chinh-sach.html', 'Chính Sách Bảo Hành & Cam Kết Dịch Vụ', 'Cam kết bảo hành 1 đổi 1 trọn gói, kích hoạt siêu tốc và hoàn tiền 100%.', policy_content, 'policy'),
     ('cua-hang.html', 'Danh Mục Sản Phẩm AI Agent', 'Tổng hợp tất cả công cụ AI và Autonomous Agent tại BotHub.vn.', agent_content, 'agent')

@@ -36,10 +36,8 @@ def get_header(active_key=''):
     <a class="nav-link {'active' if active_key == 'muse' else ''}" href="muse-ai.html">Muse AI<span class="nav-badge-hot">69k</span></a>
     <a class="nav-link {'active' if active_key == 'grok' else ''}" href="grok-bot.html">Grok Bot</a>
     
-    <!-- Trang Mã Invite Code mới -->
-    <a class="nav-link {'active' if active_key == 'invite' else ''}" href="ma-invite.html" style="color:#38bdf8;">
-      🎁 Mã Invite Code<span class="badge badge-hot" style="font-size:9px;padding:1px 5px;margin-left:4px;">1 TỶ FREE</span>
-    </a>
+    <!-- Trang Invite Code -->
+    <a class="nav-link {'active' if active_key == 'invite' else ''}" href="ma-invite.html">Invite Code</a>
 
     <a class="nav-link {'active' if active_key == 'prompts' else ''}" href="thu-vien-prompt.html">Kho Prompt</a>
     <a class="nav-link {'active' if active_key == 'compare' else ''}" href="so-sanh.html">So sánh AI</a>
@@ -55,7 +53,7 @@ def get_header(active_key=''):
     </div>
     <a href="muse-ai.html">Muse AI (Gói 1 Tỷ & 31 Tỷ Token) 🔥</a>
     <a href="grok-bot.html">Grok Bot Autonomous</a>
-    <a href="ma-invite.html" style="color:#38bdf8;font-weight:700;">🎁 Mã Invite Code (1 Tỷ Token Free)</a>
+    <a href="ma-invite.html">Invite Code</a>
     <a href="thu-vien-prompt.html">Kho Prompt Mẫu</a>
     <a href="so-sanh.html">So Sánh AI</a>
     '''

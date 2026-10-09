@@ -119,294 +119,197 @@
     
   <main>
     
-<div class="container" style="padding-top:35px;padding-bottom:50px;">
-  <!-- Header Banner -->
-  <div style="margin-bottom:30px;">
-    <span class="section-eyebrow">BOTHUB KNOWLEDGE & GUIDE HUB · THỰC CHIẾN 100%</span>
-    <h1 style="font-size:32px;margin:8px 0;font-weight:800;">Thủ Thuật AI & Hướng Dẫn Đăng Ký Thực Chiến</h1>
-    <p style="color:#94a3b8;font-size:15px;max-width:850px;line-height:1.7;">
-      Tổng hợp cẩm nang thực chiến từ chuyên gia: Cách đăng ký Muse AI nhận 1 tỷ token bằng <strong>VPN, Google/ChatGPT OAuth</strong>, quản lý đa profile với <strong>Trình duyệt Antidetect (Exmount, AdsPower)</strong>, mẹo bypass lỗi và bảng so sánh toàn diện các siêu AI.
-    </p>
+<div class="container" style="padding-top:35px;padding-bottom:55px;">
+  <!-- Hub Header -->
+  <div class="guide-hub-header">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px;">
+      <div>
+        <span class="section-eyebrow">BOTHUB KNOWLEDGE & MASTER GUIDES · THỰC CHIẾN 100%</span>
+        <h1 style="font-size:32px;margin:8px 0;font-weight:800;">Thủ Thuật AI & Hướng Dẫn Thực Chiến</h1>
+        <p style="color:#94a3b8;font-size:15px;max-width:760px;line-height:1.7;">
+          Cẩm nang độc quyền từ chuyên gia: Cách đăng ký Muse AI nhận 1 tỷ token bằng <strong>VPN, Google/ChatGPT OAuth</strong>, nuôi nick đa luồng bằng <strong>Trình duyệt Antidetect (Exmount)</strong> và video hướng dẫn từng bước.
+        </p>
+      </div>
+
+      <!-- Quick Search -->
+      <div class="guide-search-wrap">
+        <input type="text" class="guide-search-input" id="guide-search-box" placeholder="🔍 Tìm nhanh: VPN, Exmount, 1 Tỷ Token, Lỗi 403..." oninput="handleGuideSearch(this.value)">
+      </div>
+    </div>
+  </div>
+
+  <!-- SPOTLIGHT MASTER GUIDE (FOCUS HERO) -->
+  <div class="guide-spotlight" id="spotlight-card">
+    <div class="guide-spotlight-content">
+      <span class="guide-badge-spotlight">🔥 BÀI VIẾT TIÊU ĐIỂM · BẮT BUỘC ĐỌC</span>
+      <h2 class="guide-spotlight-title">Cẩm Nang Đăng Ký Muse AI Bằng VPN & Antidetect Exmount Nhận Trọn 1 Tỷ Token (A-Z)</h2>
+      <p class="guide-spotlight-desc">
+        Hướng dẫn thực chiến độc quyền: Vượt rào cản chặn dải IP Việt Nam, tạo môi trường sạch chống quét bot trên trình duyệt <strong>Exmount Browser</strong> và kích hoạt thành công <strong>1.000.000.000 Token</strong> miễn phí vào ví tài khoản.
+      </p>
+
+      <div class="guide-spotlight-meta">
+        <span>🎬 <strong>Có Video Hướng Dẫn (03:45)</strong></span>
+        <span>⏱️ <strong>4 Phút Đọc</strong></span>
+        <span>👤 <strong>BotHub Tech Team</strong></span>
+        <span>✅ <strong>Cập nhật hôm nay</strong></span>
+      </div>
+
+      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <button type="button" class="btn btn-primary btn-lg" onclick="openGuideModal('guide-vpn-muse')">
+          🎬 Đọc Bài Viết & Xem Video Demo →
+        </button>
+        <button type="button" class="btn btn-outline btn-lg" onclick="openGuideModal('guide-exmount-antidetect')">
+          🖥️ Cấu Hình Exmount Browser
+        </button>
+      </div>
+    </div>
+
+    <!-- Spotlight Video Mockup Preview -->
+    <div class="guide-spotlight-preview" onclick="openGuideModal('guide-vpn-muse')" title="Nhấp để xem bài viết và video hướng dẫn chi tiết">
+      <div class="preview-bg-cover">
+        <div class="play-btn-pulse">▶</div>
+        <div style="color:#fff;font-weight:800;font-size:15px;margin-bottom:4px;">VIDEO DEMO THỰC HÀNH TỪNG BƯỚC</div>
+        <div style="color:#38bdf8;font-size:12.5px;">Đăng Ký Muse AI · Fake IP · Nhập Invite Code 1 Tỷ Token</div>
+      </div>
+      <span class="video-preview-tag">HD 1080P · 03:45</span>
+    </div>
   </div>
 
   <!-- Filter Bar -->
   <div class="guide-filter-bar">
     <button type="button" class="guide-tab-btn active" data-filter="all">Tất Cả Thủ Thuật (5)</button>
     <button type="button" class="guide-tab-btn" data-filter="muse">🔥 Đăng Ký Muse AI</button>
-    <button type="button" class="guide-tab-btn" data-filter="vpn">🛡️ VPN & Antidetect (Exmount)</button>
+    <button type="button" class="guide-tab-btn" data-filter="vpn">🛡️ Antidetect (Exmount) & VPN</button>
     <button type="button" class="guide-tab-btn" data-filter="tips">💡 Mẹo & Khắc Phục Lỗi</button>
     <button type="button" class="guide-tab-btn" data-filter="compare">⚖️ Bảng So Sánh AI</button>
   </div>
 
-  <!-- Guides Grid -->
-  <div class="guide-grid" id="guides-grid">
-    <!-- Bài 1: Đăng ký Muse AI bằng VPN -->
-    <div class="guide-card featured" data-category="muse vpn">
-      <div class="guide-card-top">
-        <div class="guide-icon-badge">🌐</div>
-        <div class="guide-tags-row">
-          <span class="guide-tag hot">HOT NHẤT</span>
-          <span class="guide-tag tech">VPN FAKE IP</span>
-          <span class="guide-tag">3 PHÚT</span>
-        </div>
+  <!-- FOCUSED TOPIC SECTIONS -->
+  <div id="guides-list-container">
+    <!-- TOPIC 1: ĐĂNG KÝ MUSE AI & KÍCH HOẠT TOKEN -->
+    <div class="topic-group" data-topic="muse">
+      <div class="topic-header">
+        <h3 class="topic-title">
+          <span>🚀 Chuyên Đề: Đăng Ký & Kích Hoạt Token Muse AI</span>
+          <span class="topic-badge-count">3 Hướng Dẫn</span>
+        </h3>
+        <span style="font-size:12.5px;color:#94a3b8;">Nhận ngay 1 Tỷ Token miễn phí</span>
       </div>
-      <h3 class="guide-card-title">Hướng Dẫn Đăng Ký Muse AI Bằng VPN Nhận 1 Tỷ Token (Chống Chặn IP)</h3>
-      <p class="guide-card-desc">
-        Nền tảng Muse AI thường giới hạn IP tại Việt Nam hoặc chặn cấp phát gói 1 Tỷ Token miễn phí. Hướng dẫn chi tiết cách dùng VPN sạch (US/Singapore) để đăng ký thành công 100% và nhận ngay 1 Tỷ Token vào ví.
-      </p>
 
-      <button type="button" class="guide-toggle-btn" onclick="toggleGuide(this)">
-        <span>Xem hướng dẫn chi tiết từng bước ▼</span>
-      </button>
-
-      <div class="guide-steps-container">
-        <div class="step-item">
-          <div class="step-num">1</div>
-          <div class="step-body">
-            <strong>Cài đặt phần mềm VPN uy tín</strong>
-            Khuyên dùng: Proton VPN (miễn phí server US/NL/JP), 1.1.1.1 Cloudflare WARP, hoặc NordVPN / ExpressVPN để có IP dân cư sạch nhất.
+      <div class="guide-grid-focused">
+        <!-- Card 1 -->
+        <div class="guide-card-item" data-category="muse vpn" onclick="openGuideModal('guide-vpn-muse')">
+          <div class="guide-card-thumb-mockup">
+            <div class="thumb-gradient-bg" style="background:linear-gradient(135deg, rgba(6,182,212,0.15), rgba(99,102,241,0.2));">
+              <span class="thumb-icon-big">🌐</span>
+              <span style="font-size:12px;font-weight:700;color:#38bdf8;">VPN / IP SPOOFING</span>
+            </div>
+            <span class="thumb-video-pill">🎬 Video HD</span>
+            <span class="thumb-duration-pill">03:45</span>
           </div>
-        </div>
-        <div class="step-item">
-          <div class="step-num">2</div>
-          <div class="step-body">
-            <strong>Kết nối Server US hoặc Singapore</strong>
-            Chọn máy chủ United States (San Jose, California hoặc New York) hoặc Singapore. Mở trang <code>whoer.net</code> kiểm tra độ ẩn danh đạt trên 80%.
-          </div>
-        </div>
-        <div class="step-item">
-          <div class="step-num">3</div>
-          <div class="step-body">
-            <strong>Mở tab ẩn danh (Incognito)</strong>
-            Nhấn <code>Ctrl + Shift + N</code> (hoặc <code>Cmd + Shift + N</code> trên Mac) để xóa sạch cookie và cache cũ tránh bị nhận diện vị trí trước đó.
-          </div>
-        </div>
-        <div class="step-item">
-          <div class="step-num">4</div>
-          <div class="step-body">
-            <strong>Truy cập Muse AI & Nhập Invite Code</strong>
-            Vào cổng đăng ký tài khoản. Điền email và dán mã mời còn lượt tại <a href="ma-invite.html" style="color:var(--cyan);font-weight:700;">Kho Invite Code BotHub</a> (ví dụ <code>ZACDIA</code>, <code>6WVLSZ</code>, <code>PYWR4C</code>) vào ô <em>Invite / Referral Code</em>.
-          </div>
-        </div>
-        <div class="step-item">
-          <div class="step-num">5</div>
-          <div class="step-body">
-            <strong>Xác nhận Email & Kích hoạt ví</strong>
-            Mở hộp thư email xác thực mã OTP. Đăng nhập vào bảng điều khiển Muse AI: Kiểm tra số dư thấy ngay <strong>1.000.000.000 Token (1 Tỷ Token)</strong> miễn phí!
+          <h4>Hướng Dẫn Đăng Ký Muse AI Bằng VPN (Chống Chặn Dải IP Việt Nam)</h4>
+          <p>Bí quyết dùng VPN sạch kết nối server US/Singapore, kiểm tra độ ẩn danh whoer.net > 80% để nhận trọn vẹn 1 Tỷ Token vào ví.</p>
+          <div class="guide-card-bottom">
+            <span style="color:#94a3b8;">⏱️ 3 Phút Đọc</span>
+            <span class="guide-read-link">Đọc bài & xem video →</span>
           </div>
         </div>
 
-        <div class="pro-tip-box">
-          <strong>⚠️ Lưu ý sống còn:</strong> Tuyệt đối giữ nguyên kết nối VPN trong suốt quá trình điền form và xác nhận mã email. Không tắt VPN giữa chừng kẻo hệ thống hủy phiên đăng ký.
-        </div>
-      </div>
-    </div>
-
-    <!-- Bài 2: Đăng ký Muse AI bằng ChatGPT / Google Auth -->
-    <div class="guide-card" data-category="muse">
-      <div class="guide-card-top">
-        <div class="guide-icon-badge">🔑</div>
-        <div class="guide-tags-row">
-          <span class="guide-tag tech">OAUTH 2.0</span>
-          <span class="guide-tag">1-CLICK</span>
-          <span class="guide-tag">CỰC DỄ</span>
-        </div>
-      </div>
-      <h3 class="guide-card-title">Hướng Dẫn Đăng Ký Muse AI Bằng Google & ChatGPT Auth Siêu Nhanh</h3>
-      <p class="guide-card-desc">
-        Giải pháp nhanh nhất cho người không muốn nhớ thêm mật khẩu hoặc tránh tình trạng email xác nhận OTP bị rơi vào hòm thư Spam/Rác. Xác thực 1-click liên kết Google hoặc OpenAI cực kỳ an toàn.
-      </p>
-
-      <button type="button" class="guide-toggle-btn" onclick="toggleGuide(this)">
-        <span>Xem hướng dẫn chi tiết từng bước ▼</span>
-      </button>
-
-      <div class="guide-steps-container">
-        <div class="step-item">
-          <div class="step-num">1</div>
-          <div class="step-body">
-            <strong>Đăng nhập sẵn tài khoản gốc</strong>
-            Mở trình duyệt và đăng nhập sẵn tài khoản Gmail chính hoặc tài khoản OpenAI ChatGPT của bạn.
+        <!-- Card 2 -->
+        <div class="guide-card-item" data-category="muse" onclick="openGuideModal('guide-oauth-muse')">
+          <div class="guide-card-thumb-mockup">
+            <div class="thumb-gradient-bg" style="background:linear-gradient(135deg, rgba(16,185,129,0.15), rgba(6,182,212,0.2));">
+              <span class="thumb-icon-big">🔑</span>
+              <span style="font-size:12px;font-weight:700;color:#6ee7b7;">OAUTH 2.0 1-CLICK</span>
+            </div>
+            <span class="thumb-video-pill">🎬 Video HD</span>
+            <span class="thumb-duration-pill">02:15</span>
           </div>
-        </div>
-        <div class="step-item">
-          <div class="step-num">2</div>
-          <div class="step-body">
-            <strong>Chọn phương thức liên kết OAuth</strong>
-            Tại trang Sign-up của Muse AI, nhấp vào nút <strong>"Continue with Google"</strong> hoặc <strong>"Login via OpenID/ChatGPT Auth"</strong>.
-          </div>
-        </div>
-        <div class="step-item">
-          <div class="step-num">3</div>
-          <div class="step-body">
-            <strong>Ủy quyền định danh an toàn</strong>
-            Hệ thống chỉ yêu cầu quyền đọc tên và email công khai (chuẩn bảo mật OAuth 2.0), không cấp quyền truy cập vào dữ liệu cá nhân hay mật khẩu của bạn.
-          </div>
-        </div>
-        <div class="step-item">
-          <div class="step-num">4</div>
-          <div class="step-body">
-            <strong>Điền mã Invite Code từ BotHub</strong>
-            Tại màn hình chào mừng hoàn tất hồ sơ, nhập mã Invite Code từ <a href="ma-invite.html" style="color:var(--cyan);font-weight:700;">ma-invite.html</a> để nhận ngay 1 Tỷ Token.
+          <h4>Hướng Dẫn Đăng Ký Muse AI Bằng Google & ChatGPT Auth 1-Click</h4>
+          <p>Xác thực liên kết bảo mật không cần tạo mật khẩu rườm rà, tránh lỗi OTP rơi vào Spam, tài khoản có Trust Score cao chống checkpoint.</p>
+          <div class="guide-card-bottom">
+            <span style="color:#94a3b8;">⏱️ 2 Phút Đọc</span>
+            <span class="guide-read-link">Đọc bài & xem video →</span>
           </div>
         </div>
 
-        <div class="pro-tip-box">
-          <strong>💡 Mẹo Pro:</strong> Tài khoản tạo qua Google/ChatGPT Auth có độ Trust Score cao hơn nhiều lần so với email đăng ký thủ công, hầu như không bao giờ bị dính kiểm tra checkpoint xác thực bot.
-        </div>
-      </div>
-    </div>
-
-    <!-- Bài 3: Đăng ký & nuôi đa nick bằng Trình duyệt Antidetect (Exmount, AdsPower) -->
-    <div class="guide-card featured" data-category="muse vpn">
-      <div class="guide-card-top">
-        <div class="guide-icon-badge">🖥️</div>
-        <div class="guide-tags-row">
-          <span class="guide-tag hot">NÂNG CAO</span>
-          <span class="guide-tag tech">EXMOUNT BROWSER</span>
-          <span class="guide-tag">DEV AUTOMATION</span>
-        </div>
-      </div>
-      <h3 class="guide-card-title">Hướng Dẫn Đăng Ký & Quản Lý Đa Nick Muse AI Bằng Browser Antidetect (Exmount)</h3>
-      <p class="guide-card-desc">
-        Dành cho kỹ sư tự động hóa, lập trình viên và anh em làm affiliate cần cắm hàng chục Agent chạy ngầm 24/7 cào dữ liệu mà không sợ bị trùng vân tay (fingerprint) trình duyệt hay bị khóa tài khoản hàng loạt.
-      </p>
-
-      <button type="button" class="guide-toggle-btn" onclick="toggleGuide(this)">
-        <span>Xem hướng dẫn chi tiết từng bước ▼</span>
-      </button>
-
-      <div class="guide-steps-container">
-        <div class="step-item">
-          <div class="step-num">1</div>
-          <div class="step-body">
-            <strong>Cài đặt Trình duyệt Antidetect</strong>
-            Khuyên dùng <strong>Exmount Browser</strong> (tối ưu hóa chuyên sâu cho AI & Automation, nhẹ, quản lý hàng trăm profile mượt mà) hoặc AdsPower / GoLogin.
+        <!-- Card 3 -->
+        <div class="guide-card-item" data-category="muse tips" onclick="openGuideModal('guide-save-token')">
+          <div class="guide-card-thumb-mockup">
+            <div class="thumb-gradient-bg" style="background:linear-gradient(135deg, rgba(245,158,11,0.15), rgba(244,63,94,0.2));">
+              <span class="thumb-icon-big">⚡</span>
+              <span style="font-size:12px;font-weight:700;color:#fde68a;">TỐI ƯU CHI PHÍ</span>
+            </div>
+            <span class="thumb-video-pill">🎬 Video HD</span>
+            <span class="thumb-duration-pill">03:10</span>
           </div>
-        </div>
-        <div class="step-item">
-          <div class="step-num">2</div>
-          <div class="step-body">
-            <strong>Tạo Profile môi trường cô lập</strong>
-            Đặt tên Profile (ví dụ <code>Agent-Bot-01</code>). Thiết lập giả lập OS (Windows 11 / macOS), tự sinh fingerprint mới: Canvas, WebGL, AudioContext, CPU cores, RAM và WebRTC chống lộ IP thật.
-          </div>
-        </div>
-        <div class="step-item">
-          <div class="step-num">3</div>
-          <div class="step-body">
-            <strong>Gán Proxy dân cư (Residential Proxy)</strong>
-            Mỗi Profile gán một Proxy SOCKS5/HTTP riêng biệt (IP tĩnh sạch). Kiểm tra profile đạt 100% xanh trên <code>browserleaks.com</code> hoặc <code>pixelscan.net</code>.
-          </div>
-        </div>
-        <div class="step-item">
-          <div class="step-num">4</div>
-          <div class="step-body">
-            <strong>Mở Profile & Tiến hành đăng ký Muse AI</strong>
-            Mỗi profile mở lên như một máy tính vật lý độc lập ở một quốc gia khác. Đăng ký tài khoản và nhập Invite Code từ BotHub để mỗi profile đều sở hữu 1 Tỷ Token.
-          </div>
-        </div>
-        <div class="step-item">
-          <div class="step-num">5</div>
-          <div class="step-body">
-            <strong>Cắm Agent chạy tự động 24/7</strong>
-            Dùng script headless hoặc API để điều khiển bot làm việc liên tục. Không bao giờ lo bị hệ thống phát hiện liên đới giữa các tài khoản!
-          </div>
-        </div>
-
-        <div class="pro-tip-box">
-          <strong>🛡️ Bí kíp từ Dev BotHub:</strong> Xuất file Cookies dạng JSON sau khi đăng ký thành công trên Exmount. Bạn có thể import file cookie này vào server NodeJS/Python để bot chạy không cần đăng nhập lại.
-        </div>
-      </div>
-    </div>
-
-    <!-- Bài 4: Tối ưu Token & Khai thác gói 31 Tỷ -->
-    <div class="guide-card" data-category="tips">
-      <div class="guide-card-top">
-        <div class="guide-icon-badge">⚡</div>
-        <div class="guide-tags-row">
-          <span class="guide-tag tech">TIẾT KIỆM 70%</span>
-          <span class="guide-tag">TOKEN MANAGEMENT</span>
-        </div>
-      </div>
-      <h3 class="guide-card-title">Mẹo Tối Ưu Phân Bổ Token & Khai Thác Gói 31 Tỷ Token Muse AI</h3>
-      <p class="guide-card-desc">
-        Làm sao để 1 Tỷ Token không bị tiêu hao vô ích trong vài ngày? Hướng dẫn thiết lập tham số Agent, tối ưu độ dài context prompt và thời điểm nên nâng cấp gói 31 Tỷ Token tại BotHub để tối ưu chi phí.
-      </p>
-
-      <button type="button" class="guide-toggle-btn" onclick="toggleGuide(this)">
-        <span>Xem hướng dẫn chi tiết từng bước ▼</span>
-      </button>
-
-      <div class="guide-steps-container">
-        <div class="step-item">
-          <div class="step-num">1</div>
-          <div class="step-body">
-            <strong>Giới hạn Max Tokens phản hồi</strong>
-            Với các tác vụ phân loại hoặc trích xuất dữ liệu, luôn đặt <code>max_tokens: 500-1000</code>. Tránh để mặc định làm agent tự sinh giải thích dài dòng tốn token.
-          </div>
-        </div>
-        <div class="step-item">
-          <div class="step-num">2</div>
-          <div class="step-body">
-            <strong>Yêu cầu trả kết quả dạng JSON Minified</strong>
-            Cấu hình prompt trả kết quả dạng JSON nén giúp tiết kiệm 30% đến 45% lượng token truyền tải so với văn bản tự do.
-          </div>
-        </div>
-        <div class="step-item">
-          <div class="step-num">3</div>
-          <div class="step-body">
-            <strong>Săn mã Invite Code mới mỗi ngày</strong>
-            Vào <a href="ma-invite.html" style="color:var(--cyan);font-weight:700;">Kho Invite Code</a> trên BotHub để lấy các mã mới khi cần bổ sung lượt dùng miễn phí.
-          </div>
-        </div>
-        <div class="step-item">
-          <div class="step-num">4</div>
-          <div class="step-body">
-            <strong>Nâng cấp gói 31 Tỷ Token chỉ 249.000đ</strong>
-            Nếu triển khai dự án thương mại thực tế, gói 31 Tỷ Token tại BotHub là lựa chọn tối ưu nhất, rẻ hơn 85% so với mua credit lẻ và được bảo hành 1 đổi 1 trọn đời tài khoản.
+          <h4>Bí Quyết Săn Invite Code & Tối Ưu Phân Bổ 31 Tỷ Token Muse AI</h4>
+          <p>Cách kiểm soát tham số max_tokens, ép định dạng JSON nén tiết kiệm 40% chi phí và thời điểm nên nâng cấp gói 31 Tỷ Token tại BotHub.</p>
+          <div class="guide-card-bottom">
+            <span style="color:#94a3b8;">⏱️ 3 Phút Đọc</span>
+            <span class="guide-read-link">Đọc bài & xem video →</span>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Bài 5: Xử lý lỗi 403 Forbidden & Cloudflare Captcha -->
-    <div class="guide-card" data-category="tips vpn">
-      <div class="guide-card-top">
-        <div class="guide-icon-badge">💡</div>
-        <div class="guide-tags-row">
-          <span class="guide-tag">TROUBLESHOOTING</span>
-          <span class="guide-tag hot">FIX LỖI 403</span>
+    <!-- TOPIC 2: TRÌNH DUYỆT ANTIDETECT & DEV AUTOMATION -->
+    <div class="topic-group" data-topic="vpn">
+      <div class="topic-header">
+        <h3 class="topic-title">
+          <span>🛡️ Chuyên Đề: Trình Duyệt Antidetect Exmount & Nuôi Đa Nick 24/7</span>
+          <span class="topic-badge-count">Chuyên Sâu</span>
+        </h3>
+        <span style="font-size:12.5px;color:#94a3b8;">Dành cho Kỹ sư Tự động hóa & Affiliate</span>
+      </div>
+
+      <div class="guide-grid-focused">
+        <!-- Card 4 -->
+        <div class="guide-card-item" data-category="vpn muse" onclick="openGuideModal('guide-exmount-antidetect')">
+          <div class="guide-card-thumb-mockup">
+            <div class="thumb-gradient-bg" style="background:linear-gradient(135deg, rgba(99,102,241,0.25), rgba(244,63,94,0.2));">
+              <span class="thumb-icon-big">🖥️</span>
+              <span style="font-size:12px;font-weight:700;color:#a5b4fc;">EXMOUNT BROWSER</span>
+            </div>
+            <span class="thumb-video-pill">🎬 Video HD</span>
+            <span class="thumb-duration-pill">05:20</span>
+          </div>
+          <h4>Hướng Dẫn Đăng Ký & Nuôi Đa Nick Muse AI Bằng Trình Duyệt Antidetect Exmount</h4>
+          <p>Tạo Profile độc lập giả lập Canvas/WebGL/Audio Fingerprint, gắn Proxy dân cư tĩnh, xuất Cookies JSON cắm bot tự hành cào data 24/7.</p>
+          <div class="guide-card-bottom">
+            <span style="color:#94a3b8;">⏱️ 5 Phút Đọc</span>
+            <span class="guide-read-link">Đọc bài & xem video →</span>
+          </div>
         </div>
       </div>
-      <h3 class="guide-card-title">Khắc Phục Lỗi 403 Forbidden, IP Blocked & Kẹt Captcha Cloudflare</h3>
-      <p class="guide-card-desc">
-        Tổng hợp bí quyết xử lý các lỗi thường gặp nhất khi anh em dùng AI quốc tế: "Access Denied", "Rate Limit Exceeded", "Verification Loop" và cách đổi IP sạch trong 30 giây.
-      </p>
+    </div>
 
-      <button type="button" class="guide-toggle-btn" onclick="toggleGuide(this)">
-        <span>Xem hướng dẫn chi tiết từng bước ▼</span>
-      </button>
+    <!-- TOPIC 3: MẸO & KHẮC PHỤC SỰ CỐ -->
+    <div class="topic-group" data-topic="tips">
+      <div class="topic-header">
+        <h3 class="topic-title">
+          <span>💡 Chuyên Đề: Mẹo Vận Hành & Khắc Phục Sự Cố AI</span>
+          <span class="topic-badge-count">Troubleshooting</span>
+        </h3>
+        <span style="font-size:12.5px;color:#94a3b8;">Fix triệt để lỗi mạng & kẹt bot</span>
+      </div>
 
-      <div class="guide-steps-container">
-        <div class="step-item">
-          <div class="step-num">1</div>
-          <div class="step-body">
-            <strong>Xóa Cache & Cookies cục bộ của trang</strong>
-            Nhấn <code>F12</code> -> Chuyển sang tab <strong>Application</strong> -> Chọn <strong>Clear storage</strong> -> Nhấn <em>Clear site data</em>.
+      <div class="guide-grid-focused">
+        <!-- Card 5 -->
+        <div class="guide-card-item" data-category="tips vpn" onclick="openGuideModal('guide-fix-403')">
+          <div class="guide-card-thumb-mockup">
+            <div class="thumb-gradient-bg" style="background:linear-gradient(135deg, rgba(239,68,68,0.15), rgba(245,158,11,0.2));">
+              <span class="thumb-icon-big">⚠️</span>
+              <span style="font-size:12px;font-weight:700;color:#fca5a5;">CLOUDFLARE & 403</span>
+            </div>
+            <span class="thumb-video-pill">🎬 Video HD</span>
+            <span class="thumb-duration-pill">02:40</span>
           </div>
-        </div>
-        <div class="step-item">
-          <div class="step-num">2</div>
-          <div class="step-body">
-            <strong>Đổi cụm IP máy chủ VPN</strong>
-            Nếu server US East bị chặn, đổi sang US West (San Jose, Los Angeles) hoặc server Châu Âu (Frankfurt, Amsterdam). Các server này có dải IP ít bị Cloudflare gắn cờ đen.
-          </div>
-        </div>
-        <div class="step-item">
-          <div class="step-num">3</div>
-          <div class="step-body">
-            <strong>Tắt các Extension xung đột</strong>
-            Tạm thời tắt các tiện ích AdBlock, uBlock Origin hoặc cookie pop-up blockers vì chúng có thể chặn script xác thực Cloudflare Turnstile của Muse AI.
+          <h4>Khắc Phục Lỗi 403 Forbidden, IP Blocked & Kẹt Captcha Cloudflare Khi Dùng AI</h4>
+          <p>Phương pháp xóa sạch site data trong Application Storage, đổi dải IP máy chủ sạch và giải quyết lỗi xung đột extension trong 30 giây.</p>
+          <div class="guide-card-bottom">
+            <span style="color:#94a3b8;">⏱️ 3 Phút Đọc</span>
+            <span class="guide-read-link">Đọc bài & xem video →</span>
           </div>
         </div>
       </div>
@@ -533,23 +436,435 @@
   </div>
 </div>
 
+<!-- ================== ARTICLE READER MODAL (FULL EXPERIENCE) ================== -->
+<div class="guide-modal-backdrop" id="guide-modal" onclick="handleModalBackdropClick(event)">
+  <div class="guide-modal-container">
+    <div class="guide-modal-header">
+      <div class="guide-modal-header-meta">
+        <span class="guide-tag hot" id="modal-tag">HƯỚNG DẪN CHI TIẾT</span>
+        <span style="font-size:12.5px;color:#94a3b8;" id="modal-time">⏱️ 3 Phút Đọc</span>
+        <span style="font-size:12.5px;color:#38bdf8;" id="modal-video-badge">🎬 Video Hướng Dẫn Kèm Theo</span>
+      </div>
+      <button type="button" class="modal-close-btn" onclick="closeGuideModal()" aria-label="Đóng bài viết">✕</button>
+    </div>
+
+    <div class="guide-modal-body" id="modal-body-content">
+      <!-- Injected by JavaScript -->
+    </div>
+  </div>
+</div>
+
 <script>
-function toggleGuide(btn) {
-  const container = btn.nextElementSibling;
-  const isOpen = container.classList.contains('open');
-  if (isOpen) {
-    container.classList.remove('open');
-    btn.querySelector('span').textContent = 'Xem hướng dẫn chi tiết từng bước ▼';
+// ==========================================
+// KHO DỮ LIỆU BÀI VIẾT HƯỚNG DẪN & VIDEO
+// ==========================================
+const GUIDES_DATA = {
+  'guide-vpn-muse': {
+    title: 'Hướng Dẫn Đăng Ký Muse AI Bằng VPN Nhận 1 Tỷ Token (Chống Chặn IP)',
+    category: 'MUSE AI · VPN FAKE IP',
+    readTime: '4 Phút Đọc',
+    videoDuration: '03:45',
+    hasVideo: true,
+    videoTitle: 'Thực Hành: Đăng Ký Muse AI Qua Proton VPN & Nhập Invite Code 1 Tỷ Token',
+    videoChapters: [
+      { time: '00:15', label: '1. Bật VPN Server US' },
+      { time: '01:05', label: '2. Mở Tab Ẩn Danh' },
+      { time: '01:50', label: '3. Nhập Invite Code BotHub' },
+      { time: '02:40', label: '4. Kiểm Tra Ví 1 Tỷ Token' }
+    ],
+    lead: 'Nền tảng Meta Muse AI thường giới hạn IP tại Việt Nam hoặc chặn cấp phát gói 1 Tỷ Token miễn phí. Hướng dẫn chi tiết cách dùng VPN sạch (US/Singapore) để đăng ký thành công 100% và nhận ngay 1 Tỷ Token vào ví.',
+    steps: [
+      {
+        num: 1,
+        title: 'Cài đặt phần mềm VPN uy tín có IP sạch',
+        desc: 'Khuyên dùng các ứng dụng VPN chất lượng: <strong>Proton VPN</strong> (bản miễn phí có server US/NL/JP tốc độ cao), <strong>Cloudflare 1.1.1.1 WARP</strong>, hoặc <strong>NordVPN / Surfshark</strong>. Tránh dùng các VPN extension rác bị đưa vào blacklist.'
+      },
+      {
+        num: 2,
+        title: 'Kết nối máy chủ United States hoặc Singapore',
+        desc: 'Chọn server US (San Jose, California hoặc New York) hoặc Singapore. Sau khi kết nối, mở trình duyệt truy cập <code>whoer.net</code> hoặc <code>ipinfo.io</code> để kiểm tra độ ẩn danh đạt từ <strong>80% - 100%</strong> (màu xanh).'
+      },
+      {
+        num: 3,
+        title: 'Mở cửa sổ trình duyệt ẩn danh (Incognito/Private)',
+        desc: 'Nhấn tổ hợp phím <code>Ctrl + Shift + N</code> (hoặc <code>Cmd + Shift + N</code> trên macOS). Bước này giúp cô lập hoàn toàn cookies và cache cũ tránh bị hệ thống Muse AI nhận diện vị trí trước đó.'
+      },
+      {
+        num: 4,
+        title: 'Truy cập trang đăng ký Muse AI & Dán mã Invite Code',
+        desc: 'Mở trang đăng ký chính thức của Muse AI. Điền email và dán một trong các mã mời độc quyền còn lượt từ BotHub vào ô <em>Invite / Referral Code</em>:',
+        codeBox: 'Mã Invite Code đang hoạt động: ZACDIA  |  6WVLSZ  |  PYWR4C  |  5CVT4Y'
+      },
+      {
+        num: 5,
+        title: 'Xác thực Email & Nhận ngay 1 Tỷ Token',
+        desc: 'Mở hòm thư email, lấy mã xác nhận OTP và hoàn tất tạo mật khẩu. Đăng nhập vào bảng điều khiển Muse AI: Kiểm tra số dư ví thấy ngay <strong>1.000.000.000 Token (1 Tỷ Token)</strong> sẵn sàng sử dụng!'
+      }
+    ],
+    tip: 'LƯU Ý QUAN TRỌNG: Giữ nguyên kết nối VPN trong suốt quá trình điền form và xác nhận OTP email. Tuyệt đối không ngắt VPN giữa chừng kẻo hệ thống reset phiên đăng ký.',
+    ctaText: 'Lấy Mã Invite Code Mới Nhất',
+    ctaLink: 'ma-invite.html'
+  },
+
+  'guide-oauth-muse': {
+    title: 'Hướng Dẫn Đăng Ký Muse AI Bằng Google & ChatGPT Auth 1-Click',
+    category: 'OAUTH 2.0 · FAST PASS',
+    readTime: '2 Phút Đọc',
+    videoDuration: '02:15',
+    hasVideo: true,
+    videoTitle: 'Đăng Ký 1-Click Liên Kết Google & OpenAI Nhận Ngay 1 Tỷ Token',
+    videoChapters: [
+      { time: '00:10', label: '1. Đăng nhập sẵn Google/OpenAI' },
+      { time: '00:45', label: '2. Nhấp Login via OAuth' },
+      { time: '01:20', label: '3. Điền Invite Code' }
+    ],
+    lead: 'Phương thức đăng ký nhanh gọn và an toàn nhất: Không cần tạo mật khẩu riêng, không lo email OTP bị rơi vào Spam/Rác. Tài khoản tạo bằng Google/ChatGPT OAuth có Trust Score cao hơn rất nhiều, hạn chế tối đa nguy cơ checkpoint.',
+    steps: [
+      {
+        num: 1,
+        title: 'Đăng nhập sẵn tài khoản Gmail hoặc OpenAI',
+        desc: 'Mở trình duyệt chính và đăng nhập sẵn tài khoản Google Gmail hoặc tài khoản OpenAI ChatGPT bạn đang sử dụng.'
+      },
+      {
+        num: 2,
+        title: 'Chọn phương thức liên kết OAuth 2.0',
+        desc: 'Tại trang Sign-up của Muse AI, nhấp nút <strong>"Continue with Google"</strong> hoặc <strong>"Login via OpenID/ChatGPT Auth"</strong>. Hệ thống chỉ yêu cầu quyền định danh cơ bản (Email & Tên), tuyệt đối bảo mật.'
+      },
+      {
+        num: 3,
+        title: 'Điền mã Invite Code kích hoạt 1 Tỷ Token',
+        desc: 'Ở bước hoàn tất hồ sơ, nhập mã Invite Code từ BotHub vào ô Referral Code để hệ thống tự động cộng 1 Tỷ Token miễn phí.',
+        codeBox: 'Mã Invite Code độc quyền: ZACDIA'
+      },
+      {
+        num: 4,
+        title: 'Sử dụng ngay lập tức',
+        desc: 'Tài khoản kích hoạt hoàn tất trong 30 giây. Bạn có thể sử dụng trực tiếp trên giao diện web hoặc trích xuất API Key để kết nối vào phần mềm.'
+      }
+    ],
+    tip: 'Tài khoản liên kết Google Auth có độ tin cậy cực cao, gần như không bao giờ bị hệ thống gắn cờ bot hoặc yêu cầu xác minh danh tính rườm rà.',
+    ctaText: 'Đến Trang Lấy Mã Invite Code',
+    ctaLink: 'ma-invite.html'
+  },
+
+  'guide-exmount-antidetect': {
+    title: 'Hướng Dẫn Đăng Ký & Nuôi Đa Nick Muse AI Bằng Trình Duyệt Antidetect Exmount',
+    category: 'CHUYÊN SÂU DEV · ANTIDETECT BROWSER',
+    readTime: '5 Phút Đọc',
+    videoDuration: '05:20',
+    hasVideo: true,
+    videoTitle: 'Tạo Profile Cách Ly Vân Tay (Fingerprint) & Gán Proxy Cắm Bot Chạy 24/7',
+    videoChapters: [
+      { time: '00:20', label: '1. Cài đặt Exmount Browser' },
+      { time: '01:15', label: '2. Fake Fingerprint độc lập' },
+      { time: '02:30', label: '3. Gán Proxy dân cư tĩnh' },
+      { time: '04:10', label: '4. Đăng ký & Xuất Cookie JSON' }
+    ],
+    lead: 'Dành cho anh em Dev, Automation & Affiliate cần cắm hàng chục Agent tự hành 24/7 cào dữ liệu, xử lý hàng trăm tác vụ mà không sợ bị trùng vân tay (fingerprint) trình duyệt hay bị khóa tài khoản hàng loạt.',
+    steps: [
+      {
+        num: 1,
+        title: 'Cài đặt phần mềm Trình duyệt Antidetect',
+        desc: 'Khuyên dùng <strong>Exmount Browser</strong> (tối ưu hóa chuyên sâu cho AI & Automation, nhẹ nhàng, chạy song song nhiều profile mượt mà) hoặc AdsPower / GoLogin.'
+      },
+      {
+        num: 2,
+        title: 'Tạo Profile độc lập và Fake Fingerprint sạch',
+        desc: 'Tạo profile mới (ví dụ <code>Muse-Bot-01</code>). Chọn giả lập OS (Windows 11 / macOS), tự động sinh thông số mới: Canvas Fingerprint, WebGL Vendor, AudioContext, Font List, CPU cores, RAM và bật WebRTC chống rò rỉ IP thật.'
+      },
+      {
+        num: 3,
+        title: 'Gán Proxy dân cư (Residential Proxy SOCKS5/HTTP)',
+        desc: 'Mỗi Profile gán một Proxy riêng biệt (IP tĩnh sạch). Sau khi mở profile, truy cập <code>browserleaks.com</code> hoặc <code>pixelscan.net</code> kiểm tra độ sạch đạt 100% màu xanh.'
+      },
+      {
+        num: 4,
+        title: 'Mở Profile & Tiến hành đăng ký tài khoản',
+        desc: 'Mỗi profile mở lên tương đương một máy tính độc lập tại một quốc gia khác. Đăng ký Muse AI và nhập Invite Code từ BotHub để mỗi profile đều sở hữu 1 Tỷ Token riêng biệt.',
+        codeBox: 'Mã Invite Code: 6WVLSZ  |  PYWR4C  |  Q2E6IN'
+      },
+      {
+        num: 5,
+        title: 'Xuất Cookie JSON cắm bot tự động chạy 24/7',
+        desc: 'Cài extension Cookie-Editor trong profile Exmount, xuất file cookies dạng JSON. Bạn có thể nạp file cookie này vào script NodeJS/Python để bot làm việc liên tục không cần đăng nhập lại!'
+      }
+    ],
+    tip: 'BÍ KÍP CHỐNG CHECKPOINT: Tuyệt đối không đăng nhập chéo tài khoản giữa các Profile. Luôn xuất file Cookies dự phòng định kỳ hàng tuần.',
+    ctaText: 'Nhắn Zalo Nhận Hỗ Trợ Kỹ Thuật Exmount 1-1',
+    ctaLink: 'https://zalo.me/0388888888'
+  },
+
+  'guide-save-token': {
+    title: 'Bí Quyết Săn Invite Code & Tối Ưu Phân Bổ 31 Tỷ Token Muse AI',
+    category: 'TỐI ƯU CHI PHÍ · TOKEN MANAGEMENT',
+    readTime: '3 Phút Đọc',
+    videoDuration: '03:10',
+    hasVideo: true,
+    videoTitle: 'Chiến Lược Viết Prompt Chuẩn Minified Tiết Kiệm 40% Token Tiêu Hao',
+    videoChapters: [
+      { time: '00:15', label: '1. Giới hạn Max Output Tokens' },
+      { time: '01:00', label: '2. Kỹ thuật Prompt ép JSON nén' },
+      { time: '02:10', label: '3. Khi nào nâng cấp gói 31 Tỷ' }
+    ],
+    lead: 'Làm sao để 1 Tỷ Token không bị tiêu hao vô ích trong vài ngày? Hướng dẫn thiết lập tham số Agent, tối ưu độ dài context prompt và thời điểm nên nâng cấp gói 31 Tỷ Token tại BotHub để tối ưu chi phí.',
+    steps: [
+      {
+        num: 1,
+        title: 'Giới hạn Max Tokens trong cấu hình Agent',
+        desc: 'Với các tác vụ phân loại hoặc trích xuất dữ liệu, luôn đặt <code>max_tokens: 500 - 1000</code>. Tránh để mặc định làm Agent tự sinh giải thích dài dòng tốn token.'
+      },
+      {
+        num: 2,
+        title: 'Yêu cầu trả kết quả dạng JSON Minified',
+        desc: 'Cấu hình System Prompt: <em>"Respond only with minified JSON, no preamble, no markdown backticks"</em>. Kỹ thuật này giúp tiết kiệm từ 35% đến 50% lượng token truyền tải.',
+        codeBox: 'System Prompt Tip: {"format": "json_compact", "explain": false}'
+      },
+      {
+        num: 3,
+        title: 'Săn mã Invite Code mới hàng ngày',
+        desc: 'Truy cập trang <a href="ma-invite.html" style="color:var(--cyan);font-weight:700;">Kho Invite Code BotHub</a> mỗi ngày để lấy các mã mới khi cần bổ sung token cho tài khoản phụ.'
+      },
+      {
+        num: 4,
+        title: 'Nâng cấp gói 31 Tỷ Token giá chỉ 249.000đ',
+        desc: 'Nếu triển khai dự án doanh nghiệp dài hạn, gói 31 Tỷ Token tại BotHub là giải pháp tối ưu nhất, rẻ hơn 85% so với mua credit lẻ và được bảo hành 1 đổi 1 suốt thời gian sử dụng.'
+      }
+    ],
+    tip: 'Khi chạy bot cào web lớn, hãy tách nhỏ các batch công việc để nếu có task bị lỗi mạng sẽ không làm hao tổn toàn bộ context token.',
+    ctaText: 'Xem Chi Tiết Gói Muse AI 31 Tỷ Token',
+    ctaLink: 'muse-ai.html'
+  },
+
+  'guide-fix-403': {
+    title: 'Khắc Phục Lỗi 403 Forbidden, IP Blocked & Kẹt Captcha Cloudflare Khi Dùng AI',
+    category: 'TROUBLESHOOTING · FIX LỖI 403',
+    readTime: '3 Phút Đọc',
+    videoDuration: '02:40',
+    hasVideo: true,
+    videoTitle: 'Xử Lý Dứt Điểm Lỗi Access Denied Và Cloudflare Verification Loop',
+    videoChapters: [
+      { time: '00:20', label: '1. Xóa Site Data trong Application' },
+      { time: '01:05', label: '2. Đổi Server VPN ít bị blacklist' },
+      { time: '01:50', label: '3. Tắt Extension chặn script' }
+    ],
+    lead: 'Tổng hợp bí quyết xử lý các lỗi thường gặp nhất khi anh em dùng AI quốc tế: "Access Denied", "Rate Limit Exceeded", "Verification Loop" và cách đổi IP sạch trong 30 giây.',
+    steps: [
+      {
+        num: 1,
+        title: 'Xóa Cache & Cookies cục bộ của trang (Clear Site Data)',
+        desc: 'Nhấn <code>F12</code> -> Chuyển sang tab <strong>Application</strong> -> Chọn <strong>Storage</strong> bên trái -> Nhấp nút <strong>Clear site data</strong>. Thao tác này xóa sạch cờ nhận diện cũ.'
+      },
+      {
+        num: 2,
+        title: 'Đổi máy chủ VPN sang server sạch hơn',
+        desc: 'Nếu server US East bị chặn, đổi sang US West (San Jose, Los Angeles) hoặc server Châu Âu (Frankfurt, Amsterdam). Các server này có dải IP ít bị Cloudflare gắn cờ đen.'
+      },
+      {
+        num: 3,
+        title: 'Chuyển DNS máy tính sang Cloudflare 1.1.1.1',
+        desc: 'Chuyển DNS mạng máy tính sang <code>1.1.1.1</code> và <code>1.0.0.1</code> (Cloudflare DNS) hoặc <code>8.8.8.8</code> (Google DNS) để giải quyết lỗi phân giải tên miền bị nhà mạng chặn.'
+      },
+      {
+        num: 4,
+        title: 'Tắt các Extension xung đột với Cloudflare Turnstile',
+        desc: 'Tạm thời tắt các tiện ích AdBlock, uBlock Origin hoặc Privacy Badger vì chúng có thể vô tình chặn các script xác thực của Cloudflare gây ra vòng lặp vô tận.'
+      }
+    ],
+    tip: 'Nếu vẫn bị chặn IP, hãy dùng chế độ chia sẻ 4G từ điện thoại qua máy tính và kết nối VPN, dải IP mạng di động có độ sạch rất cao.',
+    ctaText: 'Nhắn Zalo Kỹ Thuật Hỗ Trợ Qua Ultraview',
+    ctaLink: 'https://zalo.me/0388888888'
+  }
+};
+
+// ==========================================
+// HÀM MỞ BÀI VIẾT CHI TIẾT & VIDEO MODAL
+// ==========================================
+function openGuideModal(guideId) {
+  const guide = GUIDES_DATA[guideId];
+  if (!guide) return;
+
+  const modal = document.getElementById('guide-modal');
+  const modalTag = document.getElementById('modal-tag');
+  const modalTime = document.getElementById('modal-time');
+  const modalVideoBadge = document.getElementById('modal-video-badge');
+  const modalBody = document.getElementById('modal-body-content');
+
+  modalTag.textContent = guide.category;
+  modalTime.textContent = '⏱️ ' + guide.readTime;
+  modalVideoBadge.textContent = guide.hasVideo ? '🎬 Video HD (' + guide.videoDuration + ')' : '';
+
+  // Render video player mockup
+  let videoPlayerHtml = '';
+  if (guide.hasVideo) {
+    let chaptersHtml = '';
+    guide.videoChapters.forEach((ch, idx) => {
+      chaptersHtml += `<button type="button" class="video-chapter-chip ${idx===0?'active':''}" onclick="handleChapterClick('${ch.time}')">⏱️ ${ch.label}</button>`;
+    });
+
+    videoPlayerHtml = `
+      <div class="guide-video-player-wrap">
+        <div class="video-screen-container" id="video-screen-box">
+          <div class="video-screen-mockup-graphic">
+            <div class="play-btn-pulse" style="margin:0 auto 12px;cursor:pointer;" onclick="playDemoVideo('${guideId}')">▶</div>
+            <h4>${guide.videoTitle}</h4>
+            <p>Video minh họa quy trình thao tác từng bước trực quan · Thời lượng: ${guide.videoDuration} · Chất lượng Full HD</p>
+          </div>
+        </div>
+        <div class="video-controls-bar">
+          <button type="button" class="video-play-toggle-btn" onclick="playDemoVideo('${guideId}')">
+            <span>▶ Phát Video Demo</span>
+          </button>
+          <div class="video-chapters-chips">
+            ${chaptersHtml}
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  // Render steps
+  let stepsHtml = '';
+  guide.steps.forEach(st => {
+    stepsHtml += `
+      <div class="article-step-block">
+        <div class="article-step-header">
+          <div class="article-step-badge">${st.num}</div>
+          <h4 class="article-step-title">${st.title}</h4>
+        </div>
+        <div class="article-step-desc">${st.desc}</div>
+        ${st.codeBox ? `
+          <div class="code-command-box">
+            <span>${st.codeBox}</span>
+            <button type="button" onclick="copyToClipboard('${st.codeBox.replace(/'/g, "'")}')">Copy</button>
+          </div>
+        ` : ''}
+      </div>
+    `;
+  });
+
+  // Assemble full article modal content
+  modalBody.innerHTML = `
+    <h1 class="article-h1">${guide.title}</h1>
+    <div class="article-lead">${guide.lead}</div>
+    ${videoPlayerHtml}
+    <h3 style="font-size:18px;font-weight:800;color:#fff;margin:24px 0 16px;">Chi Tiết Các Bước Thực Hành:</h3>
+    ${stepsHtml}
+    <div class="pro-tip-box" style="margin-top:20px;">
+      <strong>${guide.tip}</strong>
+    </div>
+    <div class="article-cta-box">
+      <div>
+        <h4 style="font-size:16px;font-weight:800;color:#fff;margin-bottom:4px;">Cần Hỗ Trợ Thao Tác Trực Tiếp 1-1?</h4>
+        <p style="font-size:13px;color:#94a3b8;margin:0;">Kỹ thuật viên BotHub luôn sẵn sàng Ultraview / gọi Zalo hỗ trợ bạn!</p>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <a href="${guide.ctaLink}" target="${guide.ctaLink.startsWith('http')?'_blank':'_self'}" class="btn btn-emerald">
+          ⚡ ${guide.ctaText}
+        </a>
+        <a href="https://zalo.me/0388888888" target="_blank" rel="noopener" class="btn btn-outline">
+          💬 Zalo Kỹ Thuật
+        </a>
+      </div>
+    </div>
+  `;
+
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+
+  // Update URL hash
+  if (history.pushState) {
+    history.pushState(null, null, '#' + guideId);
   } else {
-    container.classList.add('open');
-    btn.querySelector('span').textContent = 'Thu gọn hướng dẫn ▲';
+    location.hash = guideId;
   }
 }
 
-// Filter tabs
+function closeGuideModal() {
+  const modal = document.getElementById('guide-modal');
+  if (modal) {
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  // Clear URL hash without jumping
+  if (history.pushState) {
+    history.pushState(null, null, window.location.pathname + window.location.search);
+  } else {
+    location.hash = '';
+  }
+}
+
+function handleModalBackdropClick(event) {
+  if (event.target.id === 'guide-modal') {
+    closeGuideModal();
+  }
+}
+
+// Keyboard ESC to close
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    closeGuideModal();
+  }
+});
+
+// Demo video interaction
+function playDemoVideo(guideId) {
+  const screen = document.getElementById('video-screen-box');
+  if (screen) {
+    screen.innerHTML = `
+      <div style="text-align:center;padding:30px;animation:fadeIn 0.3s ease;">
+        <div style="font-size:42px;margin-bottom:12px;">🎬</div>
+        <h4 style="font-size:18px;color:#38bdf8;font-weight:800;margin-bottom:8px;">Đang Phát Video Hướng Dẫn Thao Tác HD (1080P)</h4>
+        <p style="color:#cbd5e1;font-size:13px;max-width:480px;margin:0 auto 16px;">
+          Kỹ thuật viên đang demo các bước đăng ký thực tế trên màn hình. Bạn có thể làm theo từng bước được mô tả chi tiết ở phần dưới bài viết!
+        </p>
+        <div style="display:inline-flex;gap:10px;">
+          <a href="https://zalo.me/0388888888" target="_blank" class="btn btn-emerald btn-sm">💬 Yêu Cầu Video Riêng Qua Zalo</a>
+        </div>
+      </div>
+    `;
+  }
+}
+
+function handleChapterClick(time) {
+  alert('Đã chuyển mốc thời gian video: ' + time);
+}
+
+function copyToClipboard(text) {
+  navigator.clipboard.writeText(text).then(() => {
+    alert('Đã sao chép vào bộ nhớ tạm: ' + text);
+  }).catch(() => {
+    prompt('Sao chép chuỗi sau:', text);
+  });
+}
+
+// Search and Filter handling
+function handleGuideSearch(query) {
+  const q = query.toLowerCase().trim();
+  const cards = document.querySelectorAll('.guide-card-item');
+  const topics = document.querySelectorAll('.topic-group');
+
+  cards.forEach(card => {
+    const title = card.querySelector('h4').textContent.toLowerCase();
+    const desc = card.querySelector('p').textContent.toLowerCase();
+    if (!q || title.includes(q) || desc.includes(q)) {
+      card.style.display = 'flex';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+
+  // Hide empty topic groups
+  topics.forEach(tg => {
+    const visibleCards = tg.querySelectorAll('.guide-card-item:not([style*="display: none"])');
+    tg.style.display = visibleCards.length > 0 ? 'block' : 'none';
+  });
+}
+
+// Filter tabs logic
 document.addEventListener('DOMContentLoaded', () => {
   const tabBtns = document.querySelectorAll('.guide-tab-btn');
-  const cards = document.querySelectorAll('.guide-card');
+  const topicGroups = document.querySelectorAll('.topic-group');
+  const spotlight = document.getElementById('spotlight-card');
 
   tabBtns.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -566,20 +881,26 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      cards.forEach(card => {
-        if (filter === 'all') {
-          card.style.display = 'flex';
-        } else {
-          const cats = card.getAttribute('data-category') || '';
-          if (cats.includes(filter)) {
-            card.style.display = 'flex';
-          } else {
-            card.style.display = 'none';
-          }
-        }
-      });
+      if (filter === 'all') {
+        topicGroups.forEach(tg => tg.style.display = 'block');
+        if (spotlight) spotlight.style.display = 'grid';
+      } else {
+        if (spotlight) spotlight.style.display = (filter === 'muse' || filter === 'vpn') ? 'grid' : 'none';
+        topicGroups.forEach(tg => {
+          const topicCat = tg.getAttribute('data-topic');
+          tg.style.display = (topicCat === filter) ? 'block' : 'none';
+        });
+      }
     });
   });
+
+  // Check URL hash on load (Deep-linking)
+  const hash = window.location.hash.replace('#', '');
+  if (hash && GUIDES_DATA[hash]) {
+    setTimeout(() => {
+      openGuideModal(hash);
+    }, 250);
+  }
 });
 </script>
 

@@ -4,27 +4,61 @@ from pathlib import Path
 ROOT = Path(__file__).parent
 
 def get_header(active_key=''):
-    nav_items = [
-        ('Trang chủ', 'index.html', 'home', ''),
-        ('AI Agent', 'ai-agent.html', 'agent', ''),
-        ('Muse AI', 'muse-ai.html', 'muse', '<span class="nav-badge-hot">69k</span>'),
-        ('Grok Bot', 'grok-bot.html', 'grok', ''),
-        ('ChatGPT', 'chatgpt.html', 'chatgpt', ''),
-        ('Claude AI', 'claude-ai.html', 'claude', ''),
-        ('Gemini AI', 'gemini-ai.html', 'gemini', ''),
-        ('Kho Prompt', 'thu-vien-prompt.html', 'prompts', ''),
-        ('So sánh AI', 'so-sanh.html', 'compare', '')
-    ]
+    nav_html = f'''
+    <a class="nav-link {'active' if active_key == 'home' else ''}" href="index.html">Trang chủ</a>
+    
+    <!-- AI Agent Dropdown (chứa ChatGPT, Claude AI, Gemini AI) -->
+    <div class="nav-dropdown">
+      <a class="nav-link {'active' if active_key in ['agent', 'chatgpt', 'claude', 'gemini'] else ''}" href="ai-agent.html" style="display:inline-flex;align-items:center;gap:3px;">
+        AI Agent <span style="font-size:10px;opacity:0.8;">▾</span>
+      </a>
+      <div class="nav-dropdown-menu">
+        <a class="dropdown-item" href="ai-agent.html">
+          <span class="dot" style="background:var(--cyan);"></span>
+          <div><b>Tất Cả AI Agent</b><br><small style="color:#64748b;font-size:11px;">Xem toàn bộ danh mục công cụ</small></div>
+        </a>
+        <div style="height:1px;background:rgba(255,255,255,0.06);margin:4px 0;"></div>
+        <a class="dropdown-item" href="chatgpt.html">
+          <span class="dot" style="background:#10b981;"></span>
+          <div><b>ChatGPT Plus & Team</b><br><small style="color:#64748b;font-size:11px;">Chính chủ email · o1/o3 reasoning</small></div>
+        </a>
+        <a class="dropdown-item" href="claude-ai.html">
+          <span class="dot" style="background:#f59e0b;"></span>
+          <div><b>Claude AI Pro</b><br><small style="color:#64748b;font-size:11px;">Sonnet 3.7 · Vua code & viết lách</small></div>
+        </a>
+        <a class="dropdown-item" href="gemini-ai.html">
+          <span class="dot" style="background:#3b82f6;"></span>
+          <div><b>Gemini Advanced 2TB</b><br><small style="color:#64748b;font-size:11px;">Google One AI Premium · 2000GB</small></div>
+        </a>
+      </div>
+    </div>
 
-    nav_html = ''.join([
-        f'<a class="nav-link {"active" if key == active_key else ""}" href="{url}">{title}{badge}</a>'
-        for title, url, key, badge in nav_items
-    ])
+    <a class="nav-link {'active' if active_key == 'muse' else ''}" href="muse-ai.html">Muse AI<span class="nav-badge-hot">69k</span></a>
+    <a class="nav-link {'active' if active_key == 'grok' else ''}" href="grok-bot.html">Grok Bot</a>
+    
+    <!-- Trang Mã Invite Code mới -->
+    <a class="nav-link {'active' if active_key == 'invite' else ''}" href="ma-invite.html" style="color:#38bdf8;">
+      🎁 Mã Invite Code<span class="badge badge-hot" style="font-size:9px;padding:1px 5px;margin-left:4px;">1 TỶ FREE</span>
+    </a>
 
-    drawer_html = ''.join([
-        f'<a href="{url}">{title}</a>'
-        for title, url, key, badge in nav_items
-    ])
+    <a class="nav-link {'active' if active_key == 'prompts' else ''}" href="thu-vien-prompt.html">Kho Prompt</a>
+    <a class="nav-link {'active' if active_key == 'compare' else ''}" href="so-sanh.html">So sánh AI</a>
+    '''
+
+    drawer_html = f'''
+    <a href="index.html">Trang chủ</a>
+    <a href="ai-agent.html" style="font-weight:700;color:#fff;">AI Agent (Tất cả công cụ)</a>
+    <div class="mobile-subnav">
+      <a href="chatgpt.html">↳ ChatGPT Plus & Team</a>
+      <a href="claude-ai.html">↳ Claude AI Pro (Sonnet 3.7)</a>
+      <a href="gemini-ai.html">↳ Gemini Advanced 2TB</a>
+    </div>
+    <a href="muse-ai.html">Muse AI (Gói 1 Tỷ & 31 Tỷ Token) 🔥</a>
+    <a href="grok-bot.html">Grok Bot Autonomous</a>
+    <a href="ma-invite.html" style="color:#38bdf8;font-weight:700;">🎁 Mã Invite Code (1 Tỷ Token Free)</a>
+    <a href="thu-vien-prompt.html">Kho Prompt Mẫu</a>
+    <a href="so-sanh.html">So Sánh AI</a>
+    '''
 
     return f'''
     <!-- Top notification & guarantee -->
@@ -35,8 +69,8 @@ def get_header(active_key=''):
           <span>🔥 Siêu ưu đãi tháng này: Giảm đến 75% các gói <strong>Muse AI, Grok Bot, ChatGPT Plus</strong> · Kích hoạt siêu tốc trong 5 phút!</span>
         </div>
         <div class="top-links">
+          <a href="ma-invite.html">🎁 Nhận 1 Tỷ Token Muse Free</a>
           <a href="chinh-sach.html">🛡️ Bảo hành 1 đổi 1</a>
-          <a href="thu-vien-prompt.html">🎁 Tặng kho 1000+ Prompt</a>
           <a href="https://zalo.me/0388888888" target="_blank" rel="noopener">💬 Zalo: 0388.888.888</a>
         </div>
       </div>
@@ -1272,6 +1306,168 @@ policy_content = f'''
 '''
 
 # =========================================================================
+# 12. MA-INVITE.HTML (INVITE CODES & PROMO HUB)
+# =========================================================================
+muse_invite_list = [
+    ('ZACDIA', 27, 'Mã mời chính thức nhận ngay 1 Tỷ Token trải nghiệm đầy đủ tính năng.'),
+    ('6WVLSZ', 29, 'Mã mời nhận 1 Tỷ Token Autonomous Agent cho tài khoản mới.'),
+    ('PYWR4C', 29, 'Kích hoạt 1 Tỷ Token Meta Muse ngay sau khi đăng ký.'),
+    ('5CVT4Y', 29, 'Mã nhận quota 1 Tỷ Token tốc độ cao không giới hạn.'),
+    ('Q2E6IN', 29, 'Thêm 1 Tỷ Token vào tài khoản Muse để tự động hóa công việc.'),
+    ('NY07IM', 29, 'Mã giới thiệu kích hoạt tính năng browser agent & 1B token.'),
+    ('QUOSLL', 29, 'Cấp quyền 1 Tỷ Token cho cá nhân và nhóm trải nghiệm.'),
+    ('TEP0WR', 29, 'Mã mời đặc quyền từ đại lý BotHub nhận 1 Tỷ Token.'),
+    ('93W5WA', 29, 'Mã nhận 1 Tỷ Token miễn phí kiểm tra hoạt động cloud agent.'),
+    ('13XC4P', 29, 'Quota 1 Tỷ Token Meta Muse chính thức còn lượt dùng cao.'),
+    ('ARGX86', 29, 'Mã dự phòng dung lượng 1 Tỷ Token hợp lệ hôm nay.')
+]
+
+invite_cards_html = ''.join([
+    f'''
+    <div class="invite-card" data-tool="muse">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <div class="prod-brand-icon icon-muse" style="width:34px;height:34px;font-size:16px;">M</div>
+          <span style="font-weight:700;font-size:13px;color:#fff;">Muse AI · 1 Tỷ Token</span>
+        </div>
+        <span class="remaining-badge">● Còn {slots} lượt</span>
+      </div>
+
+      <div class="invite-code-box" data-copy-invite="{code}" title="Nhấn để sao chép mã {code}">
+        <span style="font-size:11px;color:#94a3b8;display:block;margin-bottom:4px;">MÃ INVITE CODE (CLICK ĐỂ COPY)</span>
+        <span class="invite-code-text">{code}</span>
+      </div>
+
+      <p style="font-size:12px;color:#94a3b8;line-height:1.6;margin-bottom:14px;flex:1;">{desc}</p>
+
+      <div style="display:grid;grid-template-columns:1fr auto;gap:8px;margin-top:auto;">
+        <button type="button" class="btn btn-cyan btn-sm" data-copy-invite="{code}">
+          📋 Sao Chép Mã
+        </button>
+        <a href="https://ai.meta.com/muse/" target="_blank" rel="noopener" class="btn btn-outline btn-sm" title="Mở trang Muse đăng ký">
+          Dùng Mã ↗
+        </a>
+      </div>
+    </div>
+    '''
+    for code, slots, desc in muse_invite_list
+])
+
+invite_content = f'''
+<div class="container" style="padding-top:30px;">
+  <div style="margin-bottom:25px;">
+    <span class="section-eyebrow">KHO MÃ MỜI & ƯU ĐÃI ĐỘC QUYỀN</span>
+    <h1 style="font-size:32px;margin:8px 0;font-weight:800;">Kho Mã Invite Code & Mã Giảm Giá AI Miễn Phí</h1>
+    <p style="color:#94a3b8;font-size:14px;max-width:750px;">
+      Cập nhật danh sách mã mời (Invite Code) nhận <strong>1 Tỷ Token Muse AI miễn phí</strong> và các voucher độc quyền cho Grok, Cursor, ChatGPT. Sao chép 1-click để nhận tài nguyên AI ngay!
+    </p>
+  </div>
+
+  <!-- Live Status Notice -->
+  <div style="background:rgba(6,182,212,0.1);border:1px solid rgba(6,182,212,0.25);border-radius:14px;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:30px;">
+    <div style="display:flex;align-items:center;gap:10px;">
+      <span style="width:10px;height:10px;border-radius:50%;background:#10b981;box-shadow:0 0 10px #10b981;display:inline-block;"></span>
+      <span style="font-size:13.5px;color:#e2e8f0;font-weight:600;">Trạng thái: <strong>11 Mã Muse AI 1 Tỷ Token</strong> đang hoạt động và còn lượt sử dụng.</span>
+    </div>
+    <span class="badge badge-hot">CẬP NHẬT MỖI NGÀY</span>
+  </div>
+
+  <!-- Filter Chips -->
+  <div class="prompt-filter-bar">
+    <button type="button" class="invite-chip prompt-chip active" data-filter="all">Tất Cả Mã ({len(muse_invite_list)}+)</button>
+    <button type="button" class="invite-chip prompt-chip" data-filter="muse">Muse AI (Mã 1 Tỷ Token Free)</button>
+    <button type="button" class="invite-chip prompt-chip" data-filter="grok">Grok & Cursor AI (Sắp cập nhật)</button>
+    <button type="button" class="invite-chip prompt-chip" data-filter="discount">Mã Giảm Giá BotHub</button>
+  </div>
+
+  <!-- Invite Codes Grid -->
+  <div class="invite-grid">
+    {invite_cards_html}
+
+    <!-- Future Expansion Card: Grok & Cursor -->
+    <div class="invite-card" data-tool="grok">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <div class="prod-brand-icon icon-grok" style="width:34px;height:34px;font-size:16px;">G</div>
+          <span style="font-weight:700;font-size:13px;color:#fff;">Grok Bot / Cursor Pro</span>
+        </div>
+        <span class="badge badge-purple">SẮP MỞ</span>
+      </div>
+
+      <div class="invite-code-box" style="border-style:dotted;opacity:0.8;">
+        <span style="font-size:11px;color:#94a3b8;display:block;margin-bottom:4px;">MÃ MỜI ĐỘC QUYỀN</span>
+        <span class="invite-code-text" style="color:#94a3b8;font-size:18px;">ĐANG CẬP NHẬT...</span>
+      </div>
+
+      <p style="font-size:12px;color:#94a3b8;line-height:1.6;margin-bottom:14px;flex:1;">
+        Đăng ký nhận thông báo mã mời hoặc mã giảm giá cho Grok Bot và Cursor AI Pro sớm nhất.
+      </p>
+
+      <a href="https://zalo.me/0388888888" target="_blank" rel="noopener" class="btn btn-outline btn-sm btn-block">
+        💬 Đăng Ký Nhận Mã Qua Zalo
+      </a>
+    </div>
+
+    <!-- Future Expansion Card: BotHub Promo Code -->
+    <div class="invite-card" data-tool="discount">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <div class="prod-brand-icon icon-chatgpt" style="width:34px;height:34px;font-size:16px;">✦</div>
+          <span style="font-weight:700;font-size:13px;color:#fff;">Voucher Giảm 10% Bothub</span>
+        </div>
+        <span class="badge badge-green">VOUCHER</span>
+      </div>
+
+      <div class="invite-code-box" data-copy-invite="BOTHUB2026" title="Nhấn để copy mã BOTHUB2026">
+        <span style="font-size:11px;color:#94a3b8;display:block;margin-bottom:4px;">MÃ GIẢM GIÁ ĐƠN HÀNG</span>
+        <span class="invite-code-text" style="color:#10b981;">BOTHUB2026</span>
+      </div>
+
+      <p style="font-size:12px;color:#94a3b8;line-height:1.6;margin-bottom:14px;flex:1;">
+        Giảm ngay 10% khi mua bất kỳ tài khoản ChatGPT Plus, Claude Pro hoặc Muse AI 31 Tỷ Token.
+      </p>
+
+      <button type="button" class="btn btn-emerald btn-sm btn-block" data-copy-invite="BOTHUB2026">
+        📋 Sao Chép Mã Giảm Giá
+      </button>
+    </div>
+  </div>
+
+  <!-- Instructions Guide -->
+  <div style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:20px;padding:35px;margin:50px 0;">
+    <h3 style="font-size:22px;color:#fff;margin-bottom:16px;">📖 Hướng Dẫn 3 Bước Nhập Mã Invite Nhận 1 Tỷ Token Muse AI:</h3>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
+      <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);padding:20px;border-radius:12px;">
+        <div style="color:var(--cyan);font-weight:800;font-size:16px;margin-bottom:8px;">Bước 1. Sao Chép Mã</div>
+        <p style="font-size:13px;color:#cbd5e1;line-height:1.7;">Chọn 1 mã bất kỳ ở danh sách trên (ưu tiên mã còn 29 lượt) và bấm nút <strong>"Sao Chép Mã"</strong>.</p>
+      </div>
+      <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);padding:20px;border-radius:12px;">
+        <div style="color:var(--cyan);font-weight:800;font-size:16px;margin-bottom:8px;">Bước 2. Truy Cập Muse AI</div>
+        <p style="font-size:13px;color:#cbd5e1;line-height:1.7;">Mở trang đăng ký Meta Muse AI và dán mã invite vào ô <em>Invite Code / Referral Code</em>.</p>
+      </div>
+      <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);padding:20px;border-radius:12px;">
+        <div style="color:var(--cyan);font-weight:800;font-size:16px;margin-bottom:8px;">Bước 3. Nhận 1 Tỷ Token</div>
+        <p style="font-size:13px;color:#cbd5e1;line-height:1.7;">Hoàn tất tạo tài khoản. Kiểm tra số dư sẽ thấy ngay 1.000.000.000 token miễn phí sẵn sàng làm việc!</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Upsell Banner: Need more tokens? -->
+  <div style="background:linear-gradient(135deg,#1e1b4b,#0e1526);border:1px solid rgba(99,102,241,0.3);border-radius:20px;padding:35px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;margin-bottom:40px;">
+    <div>
+      <span class="badge badge-hot" style="margin-bottom:8px;">CẦN DUNG LƯỢNG LỚN HƠN?</span>
+      <h3 style="font-size:22px;color:#fff;margin:6px 0;">Dùng Hết 1 Tỷ Token Miễn Phí? Nâng Cấp Gói 31 Tỷ Token!</h3>
+      <p style="color:#cbd5e1;font-size:13.5px;max-width:600px;">Gói 31 Tỷ Token chỉ <strong>699.000đ</strong> (giá gốc 2.200.000đ) giúp bạn chạy hàng trăm tác vụ cào web, tổng hợp báo cáo và tự động hoá liên tục cả năm.</p>
+    </div>
+    <div style="display:flex;gap:10px;">
+      <button type="button" class="btn btn-emerald btn-lg" onclick="window.__openCheckout('muse-31b')">⚡ Mua Gói 31 Tỷ Token (699k)</button>
+      <a href="muse-ai.html" class="btn btn-outline btn-lg">Xem Chi Tiết ↗</a>
+    </div>
+  </div>
+</div>
+'''
+
+# =========================================================================
 # WRITE ALL PAGES
 # =========================================================================
 pages = [
@@ -1279,6 +1475,7 @@ pages = [
     ('ai-agent.html', 'Tất Cả Công Cụ AI & Autonomous Agents', 'Danh mục tài khoản AI Agent, Muse AI, Grok Bot, ChatGPT, Claude Pro, Gemini. Mua ngay nhận mã VietQR.', agent_content, 'agent'),
     ('muse-ai.html', 'Muse AI: Gói 1 Tỷ & 31 Tỷ Token Giá Rẻ', 'Muse AI Autonomous Agent có máy tính riêng, tự duyệt web, làm việc 24/7. Giá từ 69.000đ.', muse_content, 'muse'),
     ('grok-bot.html', 'Grok Bot: Quyền Truy Cập Grok Autonomous', 'Tích hợp Grok vào Cursor AI Pro và SuperGrok VIP. Máy tính cloud terminal riêng.', grok_content, 'grok'),
+    ('ma-invite.html', 'Kho Mã Invite Code Muse AI 1 Tỷ Token & Công Cụ AI Miễn Phí', 'Cập nhật danh sách mã invite code Muse AI nhận 1 tỷ token miễn phí, mã mời Grok Bot, Cursor, voucher giảm giá.', invite_content, 'invite'),
     ('chatgpt.html', 'ChatGPT Plus Chính Chủ Email & Team', 'Nâng cấp ChatGPT Plus chính chủ trên email của bạn. GPT-4o, GPT-o1, tạo ảnh Canvas.', chatgpt_content, 'chatgpt'),
     ('claude-ai.html', 'Claude AI Pro Sonnet 3.7 & Opus', 'Mua tài khoản Claude Pro chính hãng. Siêu trí tuệ lập trình và viết văn tự nhiên.', claude_content, 'claude'),
     ('gemini-ai.html', 'Gemini Advanced 2TB Google One AI', 'Gemini 2.0 Pro đỉnh cao + 2000GB Google Drive tích hợp Gmail, Docs.', gemini_content, 'gemini'),

@@ -505,12 +505,45 @@
     });
   }
 
+  // 1-Click Copy Invite Codes & Filters
+  function initInviteCodes() {
+    document.querySelectorAll('[data-copy-invite]').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const code = btn.dataset.copyInvite;
+        try {
+          await navigator.clipboard.writeText(code);
+          showToast(`✓ Đã sao chép mã: <b>${code}</b>! Dán vào trang đăng ký nhận quà.`);
+        } catch (_) {
+          showToast(`Mã invite: <b>${code}</b>`);
+        }
+      });
+    });
+
+    const chips = document.querySelectorAll('.invite-chip');
+    const cards = document.querySelectorAll('.invite-card[data-tool]');
+    chips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        chips.forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        const filter = chip.dataset.filter;
+        cards.forEach(card => {
+          if (filter === 'all' || card.dataset.tool === filter) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  }
+
   // On DOM Ready
   document.addEventListener('DOMContentLoaded', () => {
     updateCartBadge();
     initNavigation();
     initShopFilters();
     initPromptCopy();
+    initInviteCodes();
     initVariantPickers();
     renderCartPage();
   });

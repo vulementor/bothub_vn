@@ -1,33 +1,518 @@
-/* BotHub static demo enhancements. No orders or personal data transmitted. */
-(function(){'use strict';
-const KEY='bothub_demo_saved_v1';
-const catalog={
-'muse-1b':{name:'Muse AI · 1 tỷ token',label:'Gói dự kiến',price:69000,icon:'✳',url:'muse-ai.html'},
-'muse-31b':{name:'Muse AI · 31 tỷ token',label:'Gói dự kiến',price:699000,icon:'✳',url:'muse-ai.html'},
-'grok-cursor':{name:'Grok Bot · Qua Cursor',label:'Đang xác minh',price:null,icon:'G',url:'grok-bot.html'},
-'grok-supergrok':{name:'Grok Bot · Qua SuperGrok',label:'Đang xác minh',price:null,icon:'G',url:'grok-bot.html'},
-'chatgpt-go':{name:'ChatGPT · Go',label:'Tìm hiểu gói',price:null,icon:'✺',url:'chatgpt.html'},
-'chatgpt-plus':{name:'ChatGPT · Plus',label:'Tìm hiểu gói',price:null,icon:'✺',url:'chatgpt.html'},
-'chatgpt-pro':{name:'ChatGPT · Pro',label:'Tìm hiểu gói',price:null,icon:'✺',url:'chatgpt.html'},
-'chatgpt-business':{name:'ChatGPT · Business',label:'Tư vấn doanh nghiệp',price:null,icon:'✺',url:'chatgpt.html'}
-};
-function saved(){try{return JSON.parse(localStorage.getItem(KEY)||'[]').filter(x=>catalog[x]);}catch(_){return[];}}
-function setSaved(list){localStorage.setItem(KEY,JSON.stringify([...new Set(list)]));updateCount();}
-function money(n){return n==null?'Chưa công bố':new Intl.NumberFormat('vi-VN').format(n)+'đ';}
-function toast(message){const t=document.querySelector('#toast');if(!t)return;t.textContent=message;t.classList.add('show');clearTimeout(window.__toastTimer);window.__toastTimer=setTimeout(()=>t.classList.remove('show'),3100);}
-function updateCount(){document.querySelectorAll('[data-saved-count]').forEach(el=>el.textContent=saved().length);}
-function saveItem(id){if(!catalog[id])return;let items=saved();if(items.includes(id)){toast('Gói này đã có trong danh sách của anh.');return;}items.push(id);setSaved(items);toast('Đã lưu '+catalog[id].name+' vào giỏ hàng xem trước.');}
-function modal(title,detail){const m=document.querySelector('#interest-modal');if(!m)return;m.querySelector('[data-modal-title]').textContent=title||'Nhận thông tin gói AI';m.querySelector('[data-modal-detail]').textContent=detail||'Tính năng demo hiện chưa gửi dữ liệu về máy chủ.';m.classList.add('open');m.setAttribute('aria-hidden','false');m.querySelector('input')?.focus();}
-function closeModal(){const m=document.querySelector('#interest-modal');if(!m)return;m.classList.remove('open');m.setAttribute('aria-hidden','true');}
-function initMenus(){const mobile=document.querySelector('#mobile-menu');document.querySelector('#mobile-toggle')?.addEventListener('click',()=>{let on=mobile.classList.toggle('open');document.querySelector('#mobile-toggle').setAttribute('aria-expanded',String(on));});document.querySelectorAll('[data-open-search]').forEach(el=>el.addEventListener('click',()=>{window.location.href='ai-agent.html?focus=search';}));document.querySelectorAll('[data-modal-close]').forEach(el=>el.addEventListener('click',closeModal));document.querySelector('#interest-modal')?.addEventListener('click',e=>{if(e.target.id==='interest-modal')closeModal();});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();if(e.key==='/'&&e.target.tagName!=='INPUT'&&e.target.tagName!=='TEXTAREA'){e.preventDefault();window.location.href='ai-agent.html?focus=search';}});document.querySelector('#interest-form')?.addEventListener('submit',e=>{e.preventDefault();let name=e.currentTarget.querySelector('[name=name]').value.trim();const q=e.currentTarget.querySelector('[name=product]').value.trim();if(!name){toast('Vui lòng nhập tên.');return;}closeModal();toast('Đã xem thử biểu mẫu. Bản HTML chưa gửi đăng ký lên hệ thống.');e.currentTarget.reset();});}
-function initGlobalButtons(){document.querySelectorAll('[data-save]').forEach(el=>el.addEventListener('click',()=>saveItem(el.dataset.save)));document.querySelectorAll('[data-interest]').forEach(el=>el.addEventListener('click',()=>{const variant=getSelectedVariant();const product=variant?.name||el.dataset.interest||'Gói AI';const input=document.querySelector('#interest-form [name=product]');if(input)input.value=product;modal('Đăng ký nhận thông tin',`Quan tâm: ${product}. Đây là bản dựng giao diện, chưa kết nối backend hay gửi yêu cầu thật.`);}));}
-function getSelectedVariant(){const page=document.body.dataset.page;if(page==='muse'){let id=document.querySelector('.variant-btn.active')?.dataset.variant||'muse-1b';return{id,name:catalog[id]?.name||'Muse AI',price:catalog[id]?.price};}if(page==='grok'){let route=document.querySelector('.segment button.active')?.dataset.route||'cursor';let id=route==='cursor'?'grok-cursor':'grok-supergrok';return{id,name:catalog[id].name,price:null};}if(page==='chatgpt'){let id=document.querySelector('.plan-chip.active')?.dataset.plan||'chatgpt-plus';return{id,name:catalog[id]?.name||'ChatGPT',price:null};}return null;}
-function initMuse(){if(document.body.dataset.page!=='muse')return;const variants=document.querySelectorAll('.variant-btn');const price=document.querySelector('#selected-price');const idLabel=document.querySelector('#selected-sku');const detail=document.querySelector('#selected-detail');variants.forEach(btn=>btn.addEventListener('click',()=>{variants.forEach(v=>{v.classList.remove('active');v.setAttribute('aria-pressed','false');});btn.classList.add('active');btn.setAttribute('aria-pressed','true');const item=catalog[btn.dataset.variant];price.textContent=money(item.price);idLabel.textContent=btn.dataset.variant==='muse-1b'?'MUSE-1B':'MUSE-31B';detail.textContent=btn.dataset.variant==='muse-1b'?'Mức token dự kiến: 1 tỷ':'Mức token dự kiến: 31 tỷ';}));document.querySelector('#save-selected')?.addEventListener('click',()=>saveItem(getSelectedVariant().id));}
-function initGrok(){if(document.body.dataset.page!=='grok')return;const btns=document.querySelectorAll('.segment button[data-route]');btns.forEach(b=>b.addEventListener('click',()=>{btns.forEach(x=>{x.classList.remove('active');x.setAttribute('aria-pressed','false');});b.classList.add('active');b.setAttribute('aria-pressed','true');document.querySelectorAll('.route-content').forEach(el=>el.classList.toggle('active',el.dataset.routeContent===b.dataset.route));document.querySelector('#grok-current').textContent=b.dataset.route==='cursor'?'Qua Cursor':'Qua SuperGrok';let visible=document.querySelector('.route-content.active');visible?.querySelectorAll('[data-grok-plan]').forEach((p,i)=>p.classList.toggle('active',i===0));document.querySelector('#grok-plan-name').textContent=visible?.querySelector('[data-grok-plan]')?.dataset.grokPlan||'Đang xác minh';}));document.querySelectorAll('[data-grok-plan]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-grok-plan]').forEach(v=>v.classList.remove('active'));b.classList.add('active');document.querySelector('#grok-plan-name').textContent=b.dataset.grokPlan;}));document.querySelector('#save-selected')?.addEventListener('click',()=>saveItem(getSelectedVariant().id));}
-function initChatgpt(){if(document.body.dataset.page!=='chatgpt')return;const btns=document.querySelectorAll('.plan-chip[data-plan]');btns.forEach(b=>b.addEventListener('click',()=>{btns.forEach(x=>{x.classList.remove('active');x.setAttribute('aria-pressed','false');});b.classList.add('active');b.setAttribute('aria-pressed','true');document.querySelector('#chatgpt-current').textContent=b.dataset.plan.replace('chatgpt-','').replace(/^./,s=>s.toUpperCase());const d={ 'chatgpt-go':'Nhu cầu cá nhân hằng ngày', 'chatgpt-plus':'Nhu cầu sử dụng thường xuyên', 'chatgpt-pro':'Khối lượng công việc chuyên sâu', 'chatgpt-business':'Không gian làm việc cho đội nhóm'};document.querySelector('#chatgpt-sub').textContent=d[b.dataset.plan];}));document.querySelector('#save-selected')?.addEventListener('click',()=>saveItem(getSelectedVariant().id));}
-function initTabs(){document.querySelectorAll('[data-tab-group]').forEach(group=>{const buttons=group.querySelectorAll('[data-tab]');buttons.forEach(b=>b.addEventListener('click',()=>{buttons.forEach(x=>{x.classList.remove('active');x.setAttribute('aria-selected','false');});b.classList.add('active');b.setAttribute('aria-selected','true');const target=b.dataset.tab;group.parentElement.querySelectorAll('.detail-panel').forEach(el=>el.classList.toggle('active',el.dataset.panel===target));}));});}
-function initShop(){if(document.body.dataset.page!=='shop')return;let search=document.querySelector('#shop-search');let sort=document.querySelector('#sort-products');const cards=[...document.querySelectorAll('#shop-products .product-card')];const count=document.querySelector('#shop-results');const no=document.querySelector('#shop-empty');const checks=[...document.querySelectorAll('[name=category]')];let params=new URLSearchParams(location.search);if(params.get('q'))search.value=params.get('q');const initial=params.get('category');if(initial){checks.forEach(c=>c.checked=c.value===initial);}function render(){let q=search.value.trim().toLocaleLowerCase('vi');let selected=checks.filter(x=>x.checked).map(x=>x.value);let visibles=cards.filter(c=>{let match=(!q||(c.dataset.name||'').toLocaleLowerCase('vi').includes(q))&&(!selected.length||selected.includes(c.dataset.category));c.hidden=!match;return match;});if(sort.value==='price')visibles.sort((a,b)=>Number(a.dataset.price||999999999)-Number(b.dataset.price||999999999));else if(sort.value==='name')visibles.sort((a,b)=>a.dataset.name.localeCompare(b.dataset.name,'vi'));else visibles.sort((a,b)=>Number(a.dataset.order)-Number(b.dataset.order));visibles.forEach(c=>c.parentNode.appendChild(c));count.textContent=visibles.length;no.classList.toggle('show',!visibles.length);}search.addEventListener('input',render);sort.addEventListener('change',render);checks.forEach(c=>c.addEventListener('change',render));render();if(params.get('focus')==='search')search.focus();}
-function initPrompt(){if(document.body.dataset.page!=='prompts')return;const chips=document.querySelectorAll('.prompt-controls .chip');const cards=document.querySelectorAll('[data-prompt-category]');const count=document.querySelector('#prompt-count');function filter(cat){let n=0;cards.forEach(c=>{c.hidden=cat!=='all'&&c.dataset.promptCategory!==cat;if(!c.hidden)n++;});count.textContent=n;}chips.forEach(b=>b.addEventListener('click',()=>{chips.forEach(x=>x.classList.remove('active'));b.classList.add('active');filter(b.dataset.promptFilter);}));document.querySelectorAll('[data-copy-prompt]').forEach(b=>b.addEventListener('click',async()=>{const text=b.closest('.prompt-card').querySelector('.prompt-body').textContent.trim();try{await navigator.clipboard.writeText(text);toast('Đã sao chép prompt mẫu.');}catch(_){let ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');toast('Đã sao chép prompt mẫu.');}catch(__){toast('Trình duyệt đang chặn copy tự động.');}ta.remove();}}));}
-function initSaved(){if(document.body.dataset.page!=='saved')return;const list=document.querySelector('#saved-items');const n=document.querySelector('#saved-total');function render(){let items=saved();n.textContent=items.length;list.innerHTML=items.length?items.map(id=>`<article class="saved-item"><div class="saved-art">${catalog[id].icon}</div><div><h3><a href="${catalog[id].url}">${catalog[id].name}</a></h3><p>${catalog[id].label} · ${money(catalog[id].price)}</p></div><button type="button" aria-label="Xóa khỏi danh sách" data-remove="${id}">✕</button></article>`).join(''):'<div class="info-card align-center"><h3>Danh sách đang trống</h3><p class="muted small">Anh có thể chọn gói AI từ shop rồi lưu để so sánh trước khi quyết định.</p><a class="btn btn-sm" href="cua-hang.html">Khám phá sản phẩm →</a></div>';list.querySelectorAll('[data-remove]').forEach(b=>b.addEventListener('click',()=>{setSaved(saved().filter(x=>x!==b.dataset.remove));render();toast('Đã bỏ khỏi danh sách.');}));}render();}
-updateCount();initMenus();initGlobalButtons();initMuse();initGrok();initChatgpt();initTabs();initShop();initPrompt();initSaved();
+/**
+ * BOTHUB.VN - MARKETPLACE INTERACTIVE ENGINE
+ * Cart System, Dynamic VietQR Checkout, Fast Search & Variant Selectors
+ */
+
+(function () {
+  'use strict';
+
+  // Master Catalog Data
+  const CATALOG = {
+    'muse-1b': {
+      id: 'muse-1b',
+      name: 'Muse AI · Gói 1 Tỷ Token',
+      category: 'agent',
+      price: 69000,
+      originalPrice: 250000,
+      icon: 'M',
+      iconClass: 'icon-muse',
+      badge: 'TIẾT KIỆM 72%',
+      url: 'muse-ai.html',
+      desc: '1 Tỷ Token Meta Muse Autonomous. Tự duyệt web, điền form, chạy nền 24/7.'
+    },
+    'muse-31b': {
+      id: 'muse-31b',
+      name: 'Muse AI · Gói 31 Tỷ Token',
+      category: 'agent',
+      price: 699000,
+      originalPrice: 2200000,
+      icon: 'M',
+      iconClass: 'icon-muse',
+      badge: 'BEST SELLER',
+      url: 'muse-ai.html',
+      desc: '31 Tỷ Token dung lượng cực lớn cho công việc tự động hoá workflow chuyên sâu.'
+    },
+    'muse-unlimited': {
+      id: 'muse-unlimited',
+      name: 'Muse AI · Gói VIP Doanh Nghiệp',
+      category: 'business',
+      price: 1890000,
+      originalPrice: 4500000,
+      icon: 'M',
+      iconClass: 'icon-muse',
+      badge: 'VIP PRO',
+      url: 'muse-ai.html',
+      desc: '100 Tỷ Token + Hỗ trợ thiết lập kịch bản Automation độc quyền từ kỹ thuật viên.'
+    },
+    'grok-cursor': {
+      id: 'grok-cursor',
+      name: 'Grok Bot qua Cursor AI Pro',
+      category: 'agent',
+      price: 299000,
+      originalPrice: 500000,
+      icon: 'G',
+      iconClass: 'icon-grok',
+      badge: 'HOT DEV',
+      url: 'grok-bot.html',
+      desc: 'Tích hợp Grok Autonomous vào Cursor IDE, Cloud Terminal & Agent lập trình tự động.'
+    },
+    'grok-supergrok': {
+      id: 'grok-supergrok',
+      name: 'SuperGrok AI VIP (xAI)',
+      category: 'agent',
+      price: 490000,
+      originalPrice: 750000,
+      icon: 'G',
+      iconClass: 'icon-grok',
+      badge: 'UNLIMITED',
+      url: 'grok-bot.html',
+      desc: 'Quyền truy cập trực tiếp mô hình Grok 3 / Grok Vision mới nhất không giới hạn.'
+    },
+    'chatgpt-plus': {
+      id: 'chatgpt-plus',
+      name: 'ChatGPT Plus (Chính chủ email)',
+      category: 'assistant',
+      price: 420000,
+      originalPrice: 550000,
+      icon: '✳',
+      iconClass: 'icon-chatgpt',
+      badge: 'PHỔ BIẾN',
+      url: 'chatgpt.html',
+      desc: 'Nâng cấp trực tiếp trên email của bạn. Dùng GPT-4o, GPT-o1, tạo ảnh Canvas, DALL-E 3.'
+    },
+    'chatgpt-ready': {
+      id: 'chatgpt-ready',
+      name: 'ChatGPT Plus (Tài khoản cấp sẵn)',
+      category: 'assistant',
+      price: 290000,
+      originalPrice: 500000,
+      icon: '✳',
+      iconClass: 'icon-chatgpt',
+      badge: 'GIÁ RẺ',
+      url: 'chatgpt.html',
+      desc: 'Tài khoản riêng tư 1 người dùng, kích hoạt tức thì, bảo hành 1 đổi 1 suốt 30 ngày.'
+    },
+    'claude-pro': {
+      id: 'claude-pro',
+      name: 'Claude AI Pro (Sonnet 3.7 & Opus)',
+      category: 'assistant',
+      price: 430000,
+      originalPrice: 550000,
+      icon: 'C',
+      iconClass: 'icon-claude',
+      badge: 'VUA CODE',
+      url: 'claude-ai.html',
+      desc: 'Trùm viết văn tự nhiên và lập trình phức tạp. Hỗ trợ Claude Artifacts, Claude Code.'
+    },
+    'gemini-advanced': {
+      id: 'gemini-advanced',
+      name: 'Gemini Advanced 2TB (Google One AI)',
+      category: 'assistant',
+      price: 180000,
+      originalPrice: 490000,
+      icon: '✦',
+      iconClass: 'icon-gemini',
+      badge: 'TIẾT KIỆM 65%',
+      url: 'gemini-ai.html',
+      desc: 'Mô hình Gemini 2.0 Pro đỉnh cao + 2000GB Google Drive tích hợp Gmail, Docs.'
+    }
+  };
+
+  const CART_KEY = 'bothub_cart_v2';
+
+  // Helpers
+  function formatMoney(amount) {
+    if (!amount) return 'Liên hệ';
+    return new Intl.NumberFormat('vi-VN').format(amount) + 'đ';
+  }
+
+  function getCart() {
+    try {
+      const data = JSON.parse(localStorage.getItem(CART_KEY) || '[]');
+      return Array.isArray(data) ? data : [];
+    } catch (_) {
+      return [];
+    }
+  }
+
+  function saveCart(items) {
+    localStorage.setItem(CART_KEY, JSON.stringify(items));
+    updateCartBadge();
+  }
+
+  function updateCartBadge() {
+    const cart = getCart();
+    const count = cart.reduce((sum, item) => sum + (item.qty || 1), 0);
+    document.querySelectorAll('.cart-badge, [data-saved-count]').forEach(el => {
+      el.textContent = count;
+    });
+  }
+
+  function showToast(msg) {
+    let t = document.querySelector('.toast-msg');
+    if (!t) {
+      t = document.createElement('div');
+      t.className = 'toast-msg';
+      document.body.appendChild(t);
+    }
+    t.innerHTML = msg;
+    t.classList.add('show');
+    clearTimeout(window.__toastTimer);
+    window.__toastTimer = setTimeout(() => {
+      t.classList.remove('show');
+    }, 3200);
+  }
+
+  // Cart Operations
+  function addToCart(productId, qty = 1, showFeedback = true) {
+    const item = CATALOG[productId];
+    if (!item) return;
+
+    let cart = getCart();
+    const existing = cart.find(x => x.id === productId);
+    if (existing) {
+      existing.qty = (existing.qty || 1) + qty;
+    } else {
+      cart.push({ id: productId, qty: qty });
+    }
+    saveCart(cart);
+
+    if (showFeedback) {
+      showToast(`✓ Đã thêm <b>${item.name}</b> vào giỏ hàng! <a href="gio-hang.html" style="color:#06b6d4;text-decoration:underline;margin-left:8px;">Xem giỏ ↗</a>`);
+    }
+  }
+
+  function removeFromCart(productId) {
+    let cart = getCart().filter(x => x.id !== productId);
+    saveCart(cart);
+    renderCartPage();
+    showToast('Đã xóa sản phẩm khỏi giỏ hàng.');
+  }
+
+  function updateItemQty(productId, delta) {
+    let cart = getCart();
+    const target = cart.find(x => x.id === productId);
+    if (!target) return;
+    target.qty = (target.qty || 1) + delta;
+    if (target.qty <= 0) {
+      cart = cart.filter(x => x.id !== productId);
+    }
+    saveCart(cart);
+    renderCartPage();
+  }
+
+  // Fast Checkout Modal (VietQR)
+  function openCheckoutModal(productOrCart, isSingle = true) {
+    let modal = document.querySelector('#checkout-modal');
+    if (!modal) {
+      modal = document.createElement('div');
+      modal.id = 'checkout-modal';
+      modal.className = 'modal-overlay';
+      document.body.appendChild(modal);
+    }
+
+    let productName = '';
+    let totalAmount = 0;
+    let orderCode = 'BH' + Math.floor(100000 + Math.random() * 900000);
+
+    if (isSingle) {
+      const prod = typeof productOrCart === 'string' ? CATALOG[productOrCart] : productOrCart;
+      if (!prod) return;
+      productName = prod.name;
+      totalAmount = prod.price;
+    } else {
+      const cart = getCart();
+      if (!cart.length) {
+        showToast('Giỏ hàng đang trống!');
+        return;
+      }
+      productName = `Đơn hàng (${cart.length} sản phẩm)`;
+      totalAmount = cart.reduce((sum, c) => {
+        const p = CATALOG[c.id];
+        return sum + (p ? p.price * (c.qty || 1) : 0);
+      }, 0);
+    }
+
+    const qrUrl = `https://img.vietqr.io/image/MB-0388888888-compact2.png?amount=${totalAmount}&addInfo=${orderCode}&accountName=VU%20VAN%20LE`;
+
+    modal.innerHTML = `
+      <div class="modal-box">
+        <button type="button" class="modal-close" onclick="document.querySelector('#checkout-modal').classList.remove('open')">✕</button>
+        <div style="text-align:center;margin-bottom:15px;">
+          <span class="badge badge-hot">KÍCH HOẠT TỰ ĐỘNG 5 PHÚT</span>
+          <h2 style="font-size:22px;margin:8px 0;color:#fff;">Thanh Toán Đơn Hàng</h2>
+          <p style="font-size:13px;color:#94a3b8;">Gói: <strong style="color:#38bdf8">${productName}</strong></p>
+        </div>
+
+        <div class="qr-checkout-area">
+          <div style="font-size:24px;font-weight:800;color:#10b981;margin-bottom:6px;">${formatMoney(totalAmount)}</div>
+          <p style="font-size:12px;color:#cbd5e1;">Quét mã VietQR bằng app Ngân hàng hoặc MoMo để thanh toán tức thì</p>
+          <img class="qr-code-img" src="${qrUrl}" alt="Mã VietQR thanh toán Bothub">
+        </div>
+
+        <div class="bank-info-box">
+          <div class="info-row"><span>Ngân hàng:</span><strong>MB Bank (Quân Đội)</strong></div>
+          <div class="info-row"><span>Số tài khoản:</span><strong class="copyable" onclick="navigator.clipboard.writeText('0388888888');alert('Đã chép STK: 0388888888')">0388888888 ⧉</strong></div>
+          <div class="info-row"><span>Chủ tài khoản:</span><strong>VU VAN LE</strong></div>
+          <div class="info-row"><span>Nội dung chuyển:</span><strong class="copyable" style="color:#f59e0b" onclick="navigator.clipboard.writeText('${orderCode}');alert('Đã chép nội dung: ${orderCode}')">${orderCode} ⧉</strong></div>
+        </div>
+
+        <form id="order-confirm-form" onsubmit="event.preventDefault(); window.__confirmOrder('${orderCode}');" style="margin-top:16px;">
+          <div style="margin-bottom:12px;">
+            <label style="font-size:12px;color:#cbd5e1;display:block;margin-bottom:5px;">Email nhận tài khoản AI <span style="color:#ef4444">*</span></label>
+            <input type="email" required placeholder="Nhập email của bạn (vd: email@gmail.com)" style="width:100%;padding:10px 14px;border-radius:8px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);color:#fff;font-size:13px;" id="order-email">
+          </div>
+          <div style="margin-bottom:16px;">
+            <label style="font-size:12px;color:#cbd5e1;display:block;margin-bottom:5px;">Số Zalo / Điện thoại hỗ trợ</label>
+            <input type="tel" placeholder="Số điện thoại nhận thông báo Zalo" style="width:100%;padding:10px 14px;border-radius:8px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);color:#fff;font-size:13px;" id="order-phone">
+          </div>
+          <button type="submit" class="btn btn-emerald btn-block" style="padding:14px;font-size:15px;">
+            ⚡ TÔI ĐÃ CHUYỂN KHOẢN - NHẬN TÀI KHOẢN NGAY
+          </button>
+        </form>
+
+        <p style="font-size:11px;color:#64748b;text-align:center;margin-top:12px;line-height:1.5;">
+          🛡️ Bảo hành 1 đổi 1 suốt thời gian sử dụng. Hỗ trợ kích hoạt trực tiếp qua Zalo 0388888888 (24/7).
+        </p>
+      </div>
+    `;
+
+    modal.classList.add('open');
+  }
+
+  window.__confirmOrder = function (code) {
+    const email = document.getElementById('order-email')?.value || '';
+    const modalBox = document.querySelector('#checkout-modal .modal-box');
+    if (modalBox) {
+      modalBox.innerHTML = `
+        <div style="text-align:center;padding:25px 10px;">
+          <div style="width:65px;height:65px;background:#10b981;border-radius:50%;display:grid;place-items:center;color:white;font-size:32px;margin:0 auto 18px;box-shadow:0 0 30px rgba(16,185,129,0.5);">✓</div>
+          <h2 style="font-size:24px;color:#fff;margin-bottom:10px;">Đặt Hàng Thành Công!</h2>
+          <p style="font-size:14px;color:#cbd5e1;line-height:1.7;margin-bottom:20px;">
+            Hệ thống Bothub đã tiếp nhận mã đơn: <strong style="color:#f59e0b">${code}</strong>.<br>
+            Thông tin tài khoản & hướng dẫn kích hoạt đang được gửi về email:<br>
+            <strong style="color:#06b6d4;font-size:16px;">${email}</strong>
+          </p>
+          <div style="background:rgba(255,255,255,0.05);padding:14px;border-radius:10px;font-size:12.5px;color:#94a3b8;margin-bottom:24px;text-align:left;">
+            ⏱ Thời gian xử lý tự động: <strong>3 - 5 phút</strong>.<br>
+            📞 Nếu cần gấp, vui lòng chụp màn hình chuyển khoản gửi qua Zalo: <strong>0388888888</strong> để nhân viên cấp ngay lập tức!
+          </div>
+          <button class="btn btn-primary" onclick="document.querySelector('#checkout-modal').classList.remove('open');">Hoàn Tất & Tiếp Tục Mua Sắm</button>
+        </div>
+      `;
+      // Clear cart if checkout from cart
+      localStorage.removeItem(CART_KEY);
+      updateCartBadge();
+    }
+  };
+
+  // Render Cart Page
+  function renderCartPage() {
+    const container = document.querySelector('#cart-items-container');
+    const totalEl = document.querySelector('#cart-total-price');
+    const countEl = document.querySelector('#cart-total-count');
+    if (!container) return;
+
+    const cart = getCart();
+    if (!cart.length) {
+      container.innerHTML = `
+        <div style="text-align:center;padding:50px 20px;">
+          <div style="font-size:48px;margin-bottom:14px;">🛒</div>
+          <h3 style="font-size:20px;color:#fff;margin-bottom:8px;">Giỏ hàng của bạn đang trống</h3>
+          <p style="color:#94a3b8;font-size:14px;margin-bottom:22px;">Hãy khám phá các công cụ AI đỉnh cao và chọn cho mình gói phù hợp nhất!</p>
+          <a href="ai-agent.html" class="btn btn-primary">Khám Phá AI Agent ↗</a>
+        </div>
+      `;
+      if (totalEl) totalEl.textContent = '0đ';
+      if (countEl) countEl.textContent = '0';
+      return;
+    }
+
+    let grandTotal = 0;
+    let totalItems = 0;
+
+    container.innerHTML = cart.map(item => {
+      const prod = CATALOG[item.id];
+      if (!prod) return '';
+      const qty = item.qty || 1;
+      const subtotal = prod.price * qty;
+      grandTotal += subtotal;
+      totalItems += qty;
+
+      return `
+        <div class="cart-item-row">
+          <div class="cart-item-img ${prod.iconClass}">${prod.icon}</div>
+          <div class="cart-item-info">
+            <h4>${prod.name}</h4>
+            <p>${formatMoney(prod.price)} / gói</p>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <button class="btn btn-sm btn-outline" onclick="window.__updateCartQty('${prod.id}', -1)">-</button>
+            <span style="font-weight:700;font-size:14px;min-width:20px;text-align:center;">${qty}</span>
+            <button class="btn btn-sm btn-outline" onclick="window.__updateCartQty('${prod.id}', 1)">+</button>
+          </div>
+          <div class="cart-item-price">${formatMoney(subtotal)}</div>
+          <button class="cart-remove-btn" title="Xóa" onclick="window.__removeCartItem('${prod.id}')">✕</button>
+        </div>
+      `;
+    }).join('');
+
+    if (totalEl) totalEl.textContent = formatMoney(grandTotal);
+    if (countEl) countEl.textContent = totalItems;
+  }
+
+  window.__updateCartQty = (id, delta) => updateItemQty(id, delta);
+  window.__removeCartItem = (id) => removeFromCart(id);
+  window.__openCheckout = (id) => openCheckoutModal(id);
+  window.__openCartCheckout = () => openCheckoutModal(null, false);
+  window.__addToCart = (id) => addToCart(id);
+
+  // Initialize UI Features
+  function initNavigation() {
+    const toggle = document.querySelector('#mobile-toggle');
+    const drawer = document.querySelector('#mobile-drawer');
+    if (toggle && drawer) {
+      toggle.addEventListener('click', () => {
+        drawer.classList.toggle('open');
+      });
+    }
+
+    // Modal background click to close
+    document.addEventListener('click', (e) => {
+      if (e.target.classList.contains('modal-overlay')) {
+        e.target.classList.remove('open');
+      }
+    });
+
+    // Global buy buttons
+    document.querySelectorAll('[data-buy]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.dataset.buy;
+        openCheckoutModal(id);
+      });
+    });
+
+    // Global add cart buttons
+    document.querySelectorAll('[data-add-cart]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.dataset.addCart;
+        addToCart(id);
+      });
+    });
+  }
+
+  // Live Search & Filter in Shop/Agent page
+  function initShopFilters() {
+    const searchInput = document.querySelector('#shop-search-input');
+    const productCards = document.querySelectorAll('.product-card[data-category]');
+    const categoryChecks = document.querySelectorAll('input[name="filter-cat"]');
+    const countDisplay = document.querySelector('#shop-filtered-count');
+
+    if (!productCards.length) return;
+
+    function filterNow() {
+      const q = (searchInput?.value || '').trim().toLowerCase();
+      const checkedCats = Array.from(categoryChecks).filter(c => c.checked).map(c => c.value);
+
+      let visibleCount = 0;
+      productCards.forEach(card => {
+        const title = (card.querySelector('h3')?.textContent || '').toLowerCase();
+        const desc = (card.querySelector('.card-desc')?.textContent || '').toLowerCase();
+        const cat = card.dataset.category;
+
+        const matchSearch = !q || title.includes(q) || desc.includes(q);
+        const matchCat = !checkedCats.length || checkedCats.includes(cat);
+
+        if (matchSearch && matchCat) {
+          card.style.display = '';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      if (countDisplay) countDisplay.textContent = visibleCount;
+    }
+
+    if (searchInput) searchInput.addEventListener('input', filterNow);
+    categoryChecks.forEach(c => c.addEventListener('change', filterNow));
+
+    // Support URL param ?category=agent
+    const params = new URLSearchParams(window.location.search);
+    const catParam = params.get('category');
+    if (catParam) {
+      categoryChecks.forEach(c => {
+        if (c.value === catParam) c.checked = true;
+      });
+      filterNow();
+    }
+  }
+
+  // Copy Prompt 1-Click
+  function initPromptCopy() {
+    document.querySelectorAll('[data-copy-prompt]').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const card = btn.closest('.prompt-card');
+        const code = card?.querySelector('.prompt-code')?.textContent.trim() || '';
+        try {
+          await navigator.clipboard.writeText(code);
+          showToast('✓ Đã sao chép prompt vào bộ nhớ tạm!');
+        } catch (_) {
+          showToast('Vui lòng chọn và sao chép thủ công.');
+        }
+      });
+    });
+
+    // Prompt category filter
+    const chips = document.querySelectorAll('.prompt-chip');
+    const cards = document.querySelectorAll('.prompt-card[data-cat]');
+    chips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        chips.forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        const cat = chip.dataset.filter;
+        cards.forEach(card => {
+          if (cat === 'all' || card.dataset.cat === cat) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  }
+
+  // Interactive Variant Selectors on Landing Pages (Muse & Grok)
+  function initVariantPickers() {
+    document.querySelectorAll('.variant-selector-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const group = btn.closest('.variant-selector-group');
+        if (!group) return;
+        group.querySelectorAll('.variant-selector-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const price = btn.dataset.price;
+        const targetPriceEl = document.querySelector(btn.dataset.targetPrice);
+        if (targetPriceEl) {
+          targetPriceEl.textContent = price;
+        }
+
+        const targetBuyBtn = document.querySelector(btn.dataset.targetBuy);
+        if (targetBuyBtn && btn.dataset.productId) {
+          targetBuyBtn.dataset.buy = btn.dataset.productId;
+        }
+      });
+    });
+  }
+
+  // On DOM Ready
+  document.addEventListener('DOMContentLoaded', () => {
+    updateCartBadge();
+    initNavigation();
+    initShopFilters();
+    initPromptCopy();
+    initVariantPickers();
+    renderCartPage();
+  });
+
 })();

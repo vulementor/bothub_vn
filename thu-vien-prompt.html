@@ -1,3 +1,338 @@
 <!doctype html>
-<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Thư viện Prompt AI miễn phí | BotHub.vn</title><meta name="description" content="Prompt mẫu cho AI Agent, ảnh, marketing, lập trình và nghiên cứu."><meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#101d41"><link rel="stylesheet" href="assets/styles.css"><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"></head><body data-page="prompts"><div class="site-shell"><div class="topline"><div class="container"><span><i class="tiny-dot"></i>Không gian khám phá Autonomous AI Agent &amp; công cụ AI</span><span class="right">Bản HTML preview · Chưa mở bán trực tuyến</span></div></div>
-    <header class="header"><div class="container head-inner"><a href="index.html" class="logo" aria-label="BotHub trang chủ"><span class="logo-symbol"></span><span class="logo-word">bot<span>hub.</span></span></a><nav aria-label="Điều hướng chính"><a class="nav-link" href="ai-agent.html">AI Agent</a><a class="nav-link" href="muse-ai.html">Muse AI</a><a class="nav-link" href="grok-bot.html">Grok Bot</a><a class="nav-link" href="chatgpt.html">ChatGPT</a><a class="nav-link" href="claude-ai.html">Claude AI</a><a class="nav-link" href="gemini-ai.html">Gemini AI</a><a class="nav-link active" href="thu-vien-prompt.html">Kho Prompt</a></nav><div class="head-actions"><button class="search-nav" data-open-search type="button" aria-label="Tìm kiếm"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="10.7" cy="10.7" r="6.7"/><path d="m16 16 5 5"/></svg><span>Tìm kiếm AI...</span><kbd>/</kbd></button><a class="iconbtn account-btn" href="thu-vien-prompt.html" aria-label="Thư viện prompt">✦</a><a class="iconbtn" href="gio-hang.html" aria-label="Giỏ hàng xem trước"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 4h2l2.2 11.5h12.3l2-8.5H6"/><circle cx="9.5" cy="20" r="1"/><circle cx="18.5" cy="20" r="1"/></svg><span class="count" data-saved-count>0</span></a><button class="iconbtn mobile-toggle" id="mobile-toggle" aria-label="Mở menu" aria-controls="mobile-menu" aria-expanded="false" type="button"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button></div></div><div class="mobile-panel" id="mobile-menu"><a href="index.html">Trang chủ</a><a href="ai-agent.html">AI Agent</a><a href="muse-ai.html">Muse AI</a><a href="grok-bot.html">Grok Bot</a><a href="chatgpt.html">ChatGPT</a><a href="claude-ai.html">Claude AI</a><a href="gemini-ai.html">Gemini AI</a><a href="thu-vien-prompt.html">Kho Prompt</a><a href="gio-hang.html">Gói đã lưu</a></div></header><main class="main"><div class="container"><div class="breadcrumb"><a href="index.html">Trang chủ</a><span>›</span><span class="current">Kho Prompt</span></div><div class="page-title"><span class="eyebrow">BOTHUB PROMPT LIBRARY</span><h1>Một prompt hay không chỉ cho câu trả lời.<br>Nó tạo kết quả có thể kiểm tra.</h1><p>Bạn nhận một câu trả lời dài mà vẫn không biết bắt đầu ở đâu? Mỗi prompt ở đây có mục tiêu, đầu ra và điều kiện kiểm chứng. Nhấn Copy, thay dữ liệu trong [ngoặc vuông] rồi thử với việc thật của bạn.</p></div><section class="story-section story-small"><div class="story-heading"><span class="eyebrow">TRƯỚC / SAU · CÙNG MỘT MỤC TIÊU</span><h2>Cùng yêu cầu viết kế hoạch. Khác cách giao việc.</h2></div><div class="story-grid story-two"><article class="story-card"><span class="story-num">CÁCH HỎI MƠ HỒ</span><h3>“Viết kế hoạch marketing cho tôi.”</h3><p>AI phải đoán sản phẩm, chân dung khách, ngân sách và thước đo. Kết quả có thể trôi chảy nhưng khó triển khai.</p></article><article class="story-card story-highlight"><span class="story-num">CÁCH GIAO VIỆC RÕ</span><h3>“Lập kế hoạch 14 ngày cho [sản phẩm]...”</h3><p>Đưa khách hàng, ngân sách, nguồn dữ kiện, kênh và CTA. Yêu cầu bảng ngày/việc/KPI/người duyệt, đánh dấu giả định và hỏi lại khi thiếu thông tin.</p></article></div><p class="story-caption">Đầu ra mong muốn: bảng công việc có người thực hiện, dữ kiện đối chiếu và tiêu chí kiểm tra.</p></section><div class="prompt-controls"><button class="chip active" data-prompt-filter="all" type="button">Tất cả</button><button class="chip" data-prompt-filter="agent" type="button">AI Agent</button><button class="chip" data-prompt-filter="image" type="button">Hình ảnh</button><button class="chip" data-prompt-filter="marketing" type="button">Marketing</button><button class="chip" data-prompt-filter="coding" type="button">Lập trình</button></div><p class="small muted" style="margin:-10px 0 22px">Đang hiển thị <strong id="prompt-count">6</strong> prompt</p><div class="prompt-grid"><article class="prompt-card" data-prompt-category="agent"><div class="prompt-top"><span class="prompt-icon">✳</span><span class="tag tag-mint">Prompt miễn phí</span></div><h3>AI Agent: Từ mục tiêu đến 5 checkpoint</h3><p>Thiết kế nhiệm vụ có kiểm tra, chủ sở hữu và rủi ro.</p><div class="prompt-body">Bạn là AI Agent quản lý dự án. Mục tiêu: [MỤC TIÊU]. Hãy chia việc thành 5 giai đoạn, mỗi giai đoạn có: đầu vào, hành động, kết quả, tiêu chí kiểm chứng và điều kiện phải hỏi con người. Không tự giả định có quyền truy cập công cụ ngoài phạm vi được cung cấp.</div><div class="prompt-meta"><span class="small muted">AGENT · VI</span><button class="prompt-copy" data-copy-prompt type="button">⧉ Copy Prompt</button></div></article><article class="prompt-card" data-prompt-category="image"><div class="prompt-top"><span class="prompt-icon">▣</span><span class="tag tag-mint">Prompt miễn phí</span></div><h3>Character Sheet 11 góc mặt</h3><p>Một bố cục duy nhất với 11 ảnh chân dung nhất quán.</p><div class="prompt-body">Từ ảnh tham chiếu, tạo một CHARACTER SHEET gồm đúng 11 khung chân dung cận mặt trên cùng một canvas, sắp xếp 4-4-3. Giữ nguyên nhận dạng, tuổi biểu kiến, kiểu tóc, màu da và các đặc điểm khuôn mặt của chủ thể. Các góc gồm chính diện, trái 45°, trái 90°, phải 45°, phải 90°, nhìn lên, nhìn xuống, 3/4 trái, 3/4 phải, cười nhẹ, trung tính. Ánh sáng studio đồng nhất, không thay trang phục, nền trung tính, không thêm chữ.</div><div class="prompt-meta"><span class="small muted">IMAGE · VI</span><button class="prompt-copy" data-copy-prompt type="button">⧉ Copy Prompt</button></div></article><article class="prompt-card" data-prompt-category="marketing"><div class="prompt-top"><span class="prompt-icon">↗</span><span class="tag tag-mint">Prompt miễn phí</span></div><h3>Content Planner: 30 ngày có mục tiêu đo</h3><p>Khung chiến lược nội dung theo cụm chủ đề và ý định tìm kiếm.</p><div class="prompt-body">Đóng vai chuyên gia nội dung SEO. Từ sản phẩm [SẢN PHẨM], chân dung khách hàng [KHÁCH HÀNG] và lợi thế xác thực [LỢI THẾ], lập lịch nội dung 30 ngày gồm chủ đề, search intent, hook, outline, CTA, nguồn cần đối chiếu và mục tiêu đo lường. Không sáng tác số liệu hoặc chính sách.</div><div class="prompt-meta"><span class="small muted">MARKETING · VI</span><button class="prompt-copy" data-copy-prompt type="button">⧉ Copy Prompt</button></div></article><article class="prompt-card" data-prompt-category="agent"><div class="prompt-top"><span class="prompt-icon">◈</span><span class="tag tag-mint">Prompt miễn phí</span></div><h3>Agent Research Brief</h3><p>Nghiên cứu nhiều nguồn và đưa ra kết luận có mức độ tin cậy.</p><div class="prompt-body">Bạn là research agent. Nhiệm vụ: [CÂU HỎI]. Hãy xác định các câu hỏi con, ưu tiên nguồn chính thức, ghi rõ mốc ngày, phân loại fact/opinion/unknown, so sánh các phát biểu xung đột và trả về kết luận có citations cùng danh sách dữ kiện chưa được xác minh.</div><div class="prompt-meta"><span class="small muted">AGENT · VI</span><button class="prompt-copy" data-copy-prompt type="button">⧉ Copy Prompt</button></div></article><article class="prompt-card" data-prompt-category="coding"><div class="prompt-top"><span class="prompt-icon">⌘</span><span class="tag tag-mint">Prompt miễn phí</span></div><h3>Coding Agent: Patch an toàn</h3><p>Chia nhỏ phạm vi sửa code, giữ checkpoint và kiểm thử.</p><div class="prompt-body">Bạn là coding agent. Repo: [REPO]. Giới hạn file được chỉnh: [ALLOWLIST]. Trước khi sửa, kiểm tra git status và xác định blocker. Chỉ thực hiện một thay đổi có thể review; thêm test âm tính và regression phù hợp. Không deploy, không chạy production, không thay file ngoài allowlist. Trả diff, lệnh test và kết quả thực tế.</div><div class="prompt-meta"><span class="small muted">CODING · VI</span><button class="prompt-copy" data-copy-prompt type="button">⧉ Copy Prompt</button></div></article><article class="prompt-card" data-prompt-category="marketing"><div class="prompt-top"><span class="prompt-icon">✦</span><span class="tag tag-mint">Prompt miễn phí</span></div><h3>Sản xuất video ngắn AI</h3><p>Tạo video storyboard nhất quán nhân vật và timeline.</p><div class="prompt-body">Hãy xây storyboard 8 cảnh cho video 30-40 giây về [SẢN PHẨM]. Mỗi cảnh gồm thời lượng, hình ảnh, góc máy, chuyển động, lời thoại, SFX và prompt tạo video. Duy trì nhất quán nhân vật, địa điểm, ánh sáng và bố cục. Tránh tuyên bố quảng cáo không có bằng chứng.</div><div class="prompt-meta"><span class="small muted">MARKETING · VI</span><button class="prompt-copy" data-copy-prompt type="button">⧉ Copy Prompt</button></div></article></div><div class="note-box" style="margin-top:28px"><strong>Về bản quyền Prompt:</strong> Đây là các prompt minh họa do BotHub biên soạn để kiểm tra giao diện. Kho Prompt sẽ mở rộng thành loại nội dung riêng (Custom Post Type) khi chuyển sang WordPress.</div></div></main><footer class="site-footer"><div class="container"><div class="footer-cols"><div><a href="index.html" class="logo footer-logo"><span class="logo-symbol"></span><span class="logo-word">bot<span>hub.</span></span></a><p>Khám phá AI Agent, so sánh gói truy cập và học cách khai thác AI hiệu quả hơn cho công việc mỗi ngày.</p><p class="disclaimer">BotHub là dự án cửa hàng độc lập. Giao diện này dùng để duyệt thiết kế, không đại diện hay xác nhận quan hệ phân phối chính thức với các hãng AI.</p></div><div><h4>Khám phá</h4><a href="ai-agent.html">Tất cả sản phẩm</a><a href="muse-ai.html">Muse AI</a><a href="grok-bot.html">Grok Bot</a><a href="chatgpt.html">ChatGPT</a></div><div><h4>Tài nguyên</h4><a href="thu-vien-prompt.html">Kho Prompt miễn phí</a><a href="so-sanh.html">So sánh AI Agent</a><a href="ai-agent.html">Bảng giá tham khảo</a><a href="gio-hang.html">Gói đã lưu</a></div><div><h4>Thông tin</h4><p>Tình trạng bán hàng và thông tin nguồn cung sẽ được công bố sau khi xác minh.</p><a href="chinh-sach.html">Chính sách &amp; lưu ý</a><p>Không yêu cầu khách hàng cung cấp mật khẩu hoặc cookie đăng nhập qua bản demo.</p></div></div><div class="footer-bottom"><span>© 2026 BotHub.vn · Bản thử nghiệm HTML.</span><span>Thiết kế cho WordPress + WooCommerce trong giai đoạn tiếp theo.</span></div></div></footer></div><div class="modal-overlay" id="interest-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Quan tâm sản phẩm"><div class="modal"><button type="button" class="close-modal" data-modal-close aria-label="Đóng">×</button><span class="tag tag-blue">PREVIEW ONLY</span><h2 data-modal-title>Nhận thông tin gói AI</h2><p data-modal-detail>Bản dựng giao diện chưa kết nối hệ thống quản lý đăng ký.</p><form id="interest-form"><label class="form-label" for="form-name">Tên liên hệ</label><input class="form-input" id="form-name" name="name" placeholder="Tên của anh/chị" required maxlength="60"><label class="form-label" for="form-product">Gói quan tâm</label><input class="form-input" id="form-product" name="product" readonly><button class="btn btn-wide" style="margin-top:18px" type="submit">Xem thử gửi yêu cầu</button></form><p class="disclaimer">Dữ liệu của biểu mẫu này không được truyền lên máy chủ hoặc lưu vào cơ sở dữ liệu.</p></div></div><div class="toast" id="toast" role="status" aria-live="polite"></div><script src="assets/app.js" defer></script></body></html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kho Thư Viện Prompt AI Thực Chiến Miễn Phí | BotHub.vn - Marketplace Công Cụ AI</title>
+  <meta name="description" content="Tuyển tập 1000+ prompt hay cho AI Agent, Marketing, Coding, Midjourney.">
+  <meta name="theme-color" content="#070a13">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  
+    <!-- Top notification & guarantee -->
+    <div class="top-bar">
+      <div class="container">
+        <div>
+          <span class="flash-badge">FLASH SALE</span>
+          <span>🔥 Siêu ưu đãi tháng này: Giảm đến 75% các gói <strong>Muse AI, Grok Bot, ChatGPT Plus</strong> · Kích hoạt siêu tốc trong 5 phút!</span>
+        </div>
+        <div class="top-links">
+          <a href="chinh-sach.html">🛡️ Bảo hành 1 đổi 1</a>
+          <a href="thu-vien-prompt.html">🎁 Tặng kho 1000+ Prompt</a>
+          <a href="https://zalo.me/0388888888" target="_blank" rel="noopener">💬 Zalo: 0388.888.888</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Header -->
+    <header class="header">
+      <div class="container head-inner">
+        <a href="index.html" class="logo" aria-label="BotHub.vn Marketplace">
+          <div class="logo-icon">✦</div>
+          <div class="logo-text">BotHub<span>.vn</span></div>
+          <span class="logo-sub">MARKETPLACE</span>
+        </a>
+
+        <nav aria-label="Điều hướng chính">
+          <a class="nav-link " href="index.html">Trang chủ</a><a class="nav-link " href="ai-agent.html">AI Agent</a><a class="nav-link " href="muse-ai.html">Muse AI<span class="nav-badge-hot">69k</span></a><a class="nav-link " href="grok-bot.html">Grok Bot</a><a class="nav-link " href="chatgpt.html">ChatGPT</a><a class="nav-link " href="claude-ai.html">Claude AI</a><a class="nav-link " href="gemini-ai.html">Gemini AI</a><a class="nav-link active" href="thu-vien-prompt.html">Kho Prompt</a><a class="nav-link " href="so-sanh.html">So sánh AI</a>
+        </nav>
+
+        <div class="head-actions">
+          <div class="search-bar">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+            <input type="text" placeholder="Tìm kiếm AI, tool..." onkeydown="if(event.key==='Enter')window.location.href='ai-agent.html?q='+encodeURIComponent(this.value)">
+          </div>
+
+          <a href="gio-hang.html" class="cart-btn" aria-label="Giỏ hàng">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            <span>Giỏ hàng</span>
+            <span class="cart-badge">0</span>
+          </a>
+
+          <a href="https://zalo.me/0388888888" target="_blank" rel="noopener" class="btn-hotline">
+            <span>💬 Hỗ Trợ Zalo</span>
+          </a>
+
+          <button type="button" class="mobile-toggle" id="mobile-toggle" aria-label="Menu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16M4 6h16M4 18h16"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="mobile-drawer" id="mobile-drawer">
+        <a href="index.html">Trang chủ</a><a href="ai-agent.html">AI Agent</a><a href="muse-ai.html">Muse AI</a><a href="grok-bot.html">Grok Bot</a><a href="chatgpt.html">ChatGPT</a><a href="claude-ai.html">Claude AI</a><a href="gemini-ai.html">Gemini AI</a><a href="thu-vien-prompt.html">Kho Prompt</a><a href="so-sanh.html">So sánh AI</a>
+        <a href="gio-hang.html">🛒 Giỏ hàng (<span class="cart-badge">0</span>)</a>
+        <a href="https://zalo.me/0388888888" target="_blank">💬 Tư vấn Zalo 24/7</a>
+      </div>
+    </header>
+    
+  <main>
+    
+<div class="container" style="padding-top:30px;">
+  <div style="margin-bottom:25px;">
+    <span class="section-eyebrow">TÀI NGUYÊN ĐỘC QUYỀN BOTHUB</span>
+    <h1 style="font-size:32px;margin:8px 0;font-weight:800;">Kho Thư Viện Prompt AI Thực Chiến</h1>
+    <p style="color:#94a3b8;font-size:14px;">Tuyển tập các câu lệnh mẫu chất lượng cao cho AI Agent, Lập trình, Marketing, Viết nội dung và Tạo ảnh. Nhấn sao chép 1-click để sử dụng ngay.</p>
+  </div>
+
+  <div class="prompt-filter-bar">
+    <button type="button" class="prompt-chip active" data-filter="all">Tất Cả Prompt</button>
+    <button type="button" class="prompt-chip" data-filter="agent">AI Agent & Workflow</button>
+    <button type="button" class="prompt-chip" data-filter="coding">Lập Trình & Sửa Code</button>
+    <button type="button" class="prompt-chip" data-filter="marketing">Marketing & SEO</button>
+    <button type="button" class="prompt-chip" data-filter="image">Tạo Ảnh & Video</button>
+  </div>
+
+  <div class="prompts-grid">
+    
+    <div class="prompt-card" data-cat="agent">
+      <div class="prompt-card-top">
+        <span class="badge badge-purple">AGENT</span>
+        <span class="badge badge-green">MIỄN PHÍ</span>
+      </div>
+      <h3>AI Agent Lập Kế Hoạch 5 Bước</h3>
+      <p style="font-size:12.5px;color:#94a3b8;line-height:1.6;margin-bottom:12px;">Chia nhỏ mục tiêu lớn thành các task con có mốc nghiệm thu và tiêu chuẩn kiểm chứng.</p>
+      <div class="prompt-box">
+        <pre class="prompt-code" style="font-family:inherit;white-space:pre-wrap;margin:0;">Bạn là Autonomous Project Agent chuyên nghiệp.
+Mục tiêu dự án: [NHẬP MỤC TIÊU CỦA BẠN].
+Hãy thiết lập kế hoạch thực thi 5 giai đoạn:
+1. Giai đoạn: Tên, mục tiêu cốt lõi
+2. Input yêu cầu & Tài nguyên đầu vào
+3. Các hành động cụ thể (Action Steps)
+4. Tiêu chí nghiệm thu định lượng (Acceptance Criteria)
+5. Rủi ro tiềm ẩn & Biện pháp xử lý ngoại lệ
+Chỉ sử dụng công cụ được phép, không tự ý giả định dữ liệu chưa kiểm chứng.</pre>
+      </div>
+      <button type="button" class="btn btn-outline btn-sm btn-block" data-copy-prompt style="margin-top:auto;">
+        📋 Sao Chép Prompt
+      </button>
+    </div>
+    
+    <div class="prompt-card" data-cat="coding">
+      <div class="prompt-card-top">
+        <span class="badge badge-purple">CODING</span>
+        <span class="badge badge-green">MIỄN PHÍ</span>
+      </div>
+      <h3>Coding Agent: Refactor & Vá Bug An Toàn</h3>
+      <p style="font-size:12.5px;color:#94a3b8;line-height:1.6;margin-bottom:12px;">Phân tích mã nguồn, phát hiện lỗi ngầm và viết test case kiểm thử.</p>
+      <div class="prompt-box">
+        <pre class="prompt-code" style="font-family:inherit;white-space:pre-wrap;margin:0;">Bạn là Senior Software Engineer.
+Ngôn ngữ: [NGÔN NGỮ/FRAMEWORK].
+Source code hiện tại:
+[DÁN CODE CỦA BẠN VÀO ĐÂY]
+Nhiệm vụ:
+1. Phát hiện tất cả lỗ hổng bảo mật, lỗi logic và memory leak.
+2. Tối ưu performance và clean code theo nguyên lý SOLID.
+3. Viết lại đoạn code đã tối ưu có chú thích giải thích chi tiết.
+4. Cung cấp bộ Unit Test đầy đủ các trường hợp edge case.</pre>
+      </div>
+      <button type="button" class="btn btn-outline btn-sm btn-block" data-copy-prompt style="margin-top:auto;">
+        📋 Sao Chép Prompt
+      </button>
+    </div>
+    
+    <div class="prompt-card" data-cat="marketing">
+      <div class="prompt-card-top">
+        <span class="badge badge-purple">MARKETING</span>
+        <span class="badge badge-green">MIỄN PHÍ</span>
+      </div>
+      <h3>Chiến Lược Content 30 Ngày Tăng Traffic</h3>
+      <p style="font-size:12.5px;color:#94a3b8;line-height:1.6;margin-bottom:12px;">Lập lịch nội dung theo hành trình khách hàng và cụm chủ đề SEO.</p>
+      <div class="prompt-box">
+        <pre class="prompt-code" style="font-family:inherit;white-space:pre-wrap;margin:0;">Bạn là Content Marketing & SEO Strategist.
+Sản phẩm/Dịch vụ: [SẢN PHẨM CỦA BẠN].
+Đối tượng mục tiêu: [CHÂN DUNG KHÁCH HÀNG].
+Hãy lập bảng kế hoạch nội dung 30 ngày gồm:
+- Tuần 1: Nhận thức vấn đề (Pain Point & Awareness)
+- Tuần 2: So sánh & Cân nhắc giải pháp (Consideration)
+- Tuần 3: Chuyển đổi & Trải nghiệm thực tế (Decision & Proof)
+- Tuần 4: Giữ chân & Bán thêm (Retention)
+Mỗi bài viết gồm: Tiêu đề hook, Search Intent, Dàn ý 3 ý chính, Kêu gọi hành động (CTA).</pre>
+      </div>
+      <button type="button" class="btn btn-outline btn-sm btn-block" data-copy-prompt style="margin-top:auto;">
+        📋 Sao Chép Prompt
+      </button>
+    </div>
+    
+    <div class="prompt-card" data-cat="image">
+      <div class="prompt-card-top">
+        <span class="badge badge-purple">IMAGE</span>
+        <span class="badge badge-green">MIỄN PHÍ</span>
+      </div>
+      <h3>Character Sheet 11 Góc Mặt Nhất Quán</h3>
+      <p style="font-size:12.5px;color:#94a3b8;line-height:1.6;margin-bottom:12px;">Tạo bộ ảnh nhân vật 11 góc quay chi tiết giữ nguyên nhận diện khuôn mặt.</p>
+      <div class="prompt-box">
+        <pre class="prompt-code" style="font-family:inherit;white-space:pre-wrap;margin:0;">Ultra-realistic character turnaround sheet, full face consistency.
+Subject: [MÔ TẢ NHÂN VẬT, ĐỘ TUỔI, GIỚI TÍNH, TRANG PHỤC].
+11 angles on a single canvas in 4-4-3 arrangement:
+Front view, 45 degree left, 90 degree profile left, 45 degree right, 90 degree profile right, looking up, looking down, 3/4 left smiling, 3/4 right neutral, intense expression, laughing.
+Neutral studio soft lighting, consistent eye color and hair texture, high detail 8k photography, 85mm lens f/1.8, cinematic.</pre>
+      </div>
+      <button type="button" class="btn btn-outline btn-sm btn-block" data-copy-prompt style="margin-top:auto;">
+        📋 Sao Chép Prompt
+      </button>
+    </div>
+    
+    <div class="prompt-card" data-cat="agent">
+      <div class="prompt-card-top">
+        <span class="badge badge-purple">AGENT</span>
+        <span class="badge badge-green">MIỄN PHÍ</span>
+      </div>
+      <h3>Research Agent: Khảo Sát & So Sánh Thị Trường</h3>
+      <p style="font-size:12.5px;color:#94a3b8;line-height:1.6;margin-bottom:12px;">Nghiên cứu sâu các đối thủ cạnh tranh trên thị trường và lập ma trận SWOT.</p>
+      <div class="prompt-box">
+        <pre class="prompt-code" style="font-family:inherit;white-space:pre-wrap;margin:0;">Bạn là Market Research Agent.
+Thị trường cần nghiên cứu: [LĨNH VỰC/SẢN PHẨM].
+Hãy thực hiện báo cáo chuyên sâu:
+1. Top 5 đối thủ hàng đầu đang dẫn đầu thị trường.
+2. Phân tích mô hình định giá (Pricing model) và điểm mạnh/yếu của từng bên.
+3. Khoảng trống thị trường (Unmet Needs) mà chưa ai giải quyết tốt.
+4. Đề xuất chiến lược định vị và thông điệp cạnh tranh độc nhất (USP).</pre>
+      </div>
+      <button type="button" class="btn btn-outline btn-sm btn-block" data-copy-prompt style="margin-top:auto;">
+        📋 Sao Chép Prompt
+      </button>
+    </div>
+    
+    <div class="prompt-card" data-cat="coding">
+      <div class="prompt-card-top">
+        <span class="badge badge-purple">CODING</span>
+        <span class="badge badge-green">MIỄN PHÍ</span>
+      </div>
+      <h3>Tạo Kịch Bản Video Ngắn Triệu View TikTok/Reels</h3>
+      <p style="font-size:12.5px;color:#94a3b8;line-height:1.6;margin-bottom:12px;">Khung kịch bản video 30-45 giây giữ chân người xem từ giây đầu tiên.</p>
+      <div class="prompt-box">
+        <pre class="prompt-code" style="font-family:inherit;white-space:pre-wrap;margin:0;">Bạn là Viral Video Scriptwriter chuyên nghiệp.
+Chủ đề video: [CHỦ ĐỀ/SẢN PHẨM].
+Thời lượng: 30 - 45 giây.
+Hãy viết kịch bản chi tiết:
+- Giây 0-3 (Hook hình ảnh & âm thanh): Gây sốc, phá vỡ định kiến hoặc đặt câu hỏi tò mò.
+- Giây 4-15 (Xoáy sâu nỗi đau): Diễn tả tình huống khách hàng gặp phải.
+- Giây 16-30 (Bẻ khóa giải pháp): Giới thiệu cách giải quyết thông minh bằng sản phẩm.
+- Giây 31-40 (Call to Action): Kêu gọi hành động ngắn gọn, kích thích comment.</pre>
+      </div>
+      <button type="button" class="btn btn-outline btn-sm btn-block" data-copy-prompt style="margin-top:auto;">
+        📋 Sao Chép Prompt
+      </button>
+    </div>
+    
+  </div>
+</div>
+
+  </main>
+  
+    <!-- Guarantee Promise Strip -->
+    <div class="container">
+      <div class="promise-strip">
+        <div class="promise-grid">
+          <div class="promise-box">
+            <div class="p-icon">⚡</div>
+            <div>
+              <h4>Kích Hoạt Siêu Tốc 5P</h4>
+              <p>Hệ thống tự động kích hoạt tài khoản qua email của bạn chỉ sau 3-5 phút thanh toán.</p>
+            </div>
+          </div>
+          <div class="promise-box">
+            <div class="p-icon">🛡️</div>
+            <div>
+              <h4>Bảo Hành 1 Đổi 1 Trọn Đời</h4>
+              <p>Cam kết bảo hành đầy đủ thời gian sử dụng. Đổi mới hoặc hoàn tiền 100% nếu có lỗi.</p>
+            </div>
+          </div>
+          <div class="promise-box">
+            <div class="p-icon">💰</div>
+            <div>
+              <h4>Tiết Kiệm Đến 80%</h4>
+              <p>Mức giá đại lý tốt nhất thị trường, không cần thẻ visa quốc tế hay thủ tục rườm rà.</p>
+            </div>
+          </div>
+          <div class="promise-box">
+            <div class="p-icon">🤝</div>
+            <div>
+              <h4>Hỗ Trợ Kỹ Thuật 24/7</h4>
+              <p>Đội ngũ chuyên gia AI hỗ trợ cài đặt, kết nối API và tối ưu prompt bất cứ lúc nào.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="index.html" class="logo">
+              <div class="logo-icon">✦</div>
+              <div class="logo-text">BotHub<span>.vn</span></div>
+            </a>
+            <p>BotHub.vn là nền tảng thương mại cung cấp công cụ & tài khoản AI hàng đầu Việt Nam. Giúp cá nhân và doanh nghiệp tiếp cận các siêu trí tuệ nhân tạo (Muse, Grok, Claude, ChatGPT, Gemini) với chi phí rẻ nhất và sự bảo đảm cao nhất.</p>
+            <div style="font-size:13px;color:#94a3b8;display:grid;gap:6px;">
+              <div>📍 <strong>Văn phòng:</strong> Tòa nhà Landmark 81, TP. Hồ Chí Minh</div>
+              <div>📞 <strong>Hotline/Zalo:</strong> 0388.888.888 (Hỗ trợ 24/7)</div>
+              <div>✉️ <strong>Email:</strong> hotro@bothub.vn</div>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h4>Sản Phẩm Nổi Bật</h4>
+            <ul>
+              <li><a href="muse-ai.html">Muse AI (1 Tỷ & 31 Tỷ Token)</a></li>
+              <li><a href="grok-bot.html">Grok Bot Autonomous</a></li>
+              <li><a href="chatgpt.html">ChatGPT Plus & Team</a></li>
+              <li><a href="claude-ai.html">Claude Pro Sonnet 3.7</a></li>
+              <li><a href="gemini-ai.html">Gemini Advanced 2TB</a></li>
+              <li><a href="ai-agent.html">Tất cả AI Agent ↗</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Tài Nguyên & Công Cụ</h4>
+            <ul>
+              <li><a href="thu-vien-prompt.html">Kho 1000+ Prompt Miễn Phí</a></li>
+              <li><a href="so-sanh.html">Bảng So Sánh Các AI Model</a></li>
+              <li><a href="chinh-sach.html">Chính Sách Bảo Hành 1-1</a></li>
+              <li><a href="gio-hang.html">Giỏ Hàng & Đơn Hàng</a></li>
+              <li><a href="chinh-sach.html">Hướng Dẫn Thanh Toán VietQR</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Phương Thức Thanh Toán</h4>
+            <p style="font-size:12.5px;color:#94a3b8;margin-bottom:12px;">Hỗ trợ chuyển khoản ngân hàng tự động qua VietQR, thẻ nội địa, MoMo và ZaloPay.</p>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:15px;">
+              <span class="badge badge-cyan">VietQR 24/7</span>
+              <span class="badge badge-purple">MoMo Pay</span>
+              <span class="badge badge-green">MB Bank</span>
+              <span class="badge badge-hot">Thẻ Nội Địa</span>
+            </div>
+            <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);padding:12px;border-radius:10px;font-size:11.5px;color:#94a3b8;">
+              🔒 Giao dịch được mã hóa an toàn 100%. Thông tin tài khoản được gửi tự động và bảo mật tuyệt đối.
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div>© 2026 BotHub.vn - Nền Tảng Cung Cấp Tài Khoản & Công Cụ AI Số 1 Việt Nam. All rights reserved.</div>
+          <div style="display:flex;gap:15px;">
+            <a href="chinh-sach.html">Điều khoản sử dụng</a>
+            <a href="chinh-sach.html">Chính sách bảo mật</a>
+            <a href="chinh-sach.html">Quy định hoàn tiền</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Floating Contact Widgets -->
+    <div class="floating-widget">
+      <a href="https://zalo.me/0388888888" target="_blank" rel="noopener" class="floating-btn zalo" title="Chat Zalo ngay">Zalo</a>
+      <a href="tel:0388888888" class="floating-btn hotline" title="Gọi Hotline: 0388.888.888">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </a>
+    </div>
+
+    <script src="assets/app.js"></script>
+    
+</body>
+</html>
